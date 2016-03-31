@@ -1,0 +1,74 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.landingplate {
+  position:absolute;
+  padding:10px;
+  left:50%;
+  margin-left:-25%;
+  top:50%;
+  margin-top:15%;
+  width:50%;
+  text-align:center;
+}
+
+.landingplate h1 {
+  text-align:center;
+}
+
+.landingplate p {
+  text-align:center;
+}
+
+#valueprop, #problem, #magic, #businessmodel, #marketplan, #analysis, #title {
+  height:100vh;
+  width:100vw;
+}
+
+
+#nav {
+  position:fixed;
+}
+#nav ul {
+  padding:10px;
+  list-style:none;
+}
+
+.fullpage-wrapper {
+  position:relative;
+  padding:10px;
+  left:50%;
+  margin-left:-25%;
+  top:50%;
+  margin-top:15%;
+  width:50%;
+  text-align:center;
+}
