@@ -1,3 +1,27 @@
-<div id="magic">
-    <h1>MAGIC</h1>
+<div id="magic" ng-app="ideaPlanner">
+  <h1>MAGIC</h1>
+  <div>
+    <p>The underlying magic of this product is...</p>
+    <input type="text" placeholder="What is it?">
+    <p>You could almost say it's like...</p>
+  </div>
+  <div class="row" ng-controller="magicCtrl" ng-model="vennInput">
+    <form>
+      <fieldset>
+        <div class="column">
+          <label for="mgc-like">It's like...</label>
+          <input ng-model="vennInput.like" ng-change="updateVennData()" type="text" id="mgc-like" placeholder="Put your business here">
+          <label for="mgc-for">For...</label>
+          <input ng-model="vennInput.for" ng-change="updateVennData()" type="text" id="mgc-for" placeholder="Put your business here">
+          <label for="mgc-with">With...</label>
+          <input ng-model="vennInput.with" ng-change="updateVennData()" type="text" id="mgc-with" placeholder="Put your business here">
+        </div>
+      </fieldset>
+    </form>
+    <div class="column column-66" id="vennColumn">
+      <div venn="vennData" id="vennDiagram">
+        <h5 id="companyTitle">YOUR COMPANY</h5>
+      </div>
+    </div>
+  </div>
 </div>

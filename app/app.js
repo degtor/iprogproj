@@ -1,15 +1,15 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var ideaPlanner = angular.module('myApp', ['ngRoute', 'duScroll']);
+var ideaPlanner = angular.module('myApp', ['ngRoute', 'duScroll', 'angular-venn']);
 
 ideaPlanner.config(['$routeProvider', function($routeProvider) {
 
   $routeProvider.
-    when('/home', {
-      templateUrl: 'partials/homeView/home.html'
-    }).
-    when('/fullpage', {
+  when('/home', {
+    templateUrl: 'partials/homeView/home.html'
+  }).
+  when('/fullpage', {
       templateUrl: 'partials/fullpageView/fullpage.html',
       //controller: 'FullpageCtrl'
     }).
@@ -27,5 +27,5 @@ ideaPlanner.config(['$routeProvider', function($routeProvider) {
 
 
 
-  otherwise({redirectTo: '/home'});
+  otherwise({ redirectTo: '/home' });
 }]);
