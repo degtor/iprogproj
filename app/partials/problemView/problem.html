@@ -1,3 +1,24 @@
-<div id="problem">
-    <h1>PROBLEM</h1>
+<div id="problem" ng-app="ideaPlanner" ng-controller="problemCtrl">
+    <h1>PROBLEM AND OPPORTUNITY</h1>
+    <p>Describe the pain that you're alleviating and the pleasure you're providing</p>
+    <div id="inputContainer">
+	    <div class="row">
+		    <div class="col-xs-4">
+		    	<input type="text" class="form-control" placeholder="Problem"></input>
+		    </div>
+		    <span class="glyphicon glyphicon-arrow-right"></span>
+		    <div class="col-xs-4">
+		    	<input type="text" class="form-control" placeholder="Opportunity"></input>
+		    </div>
+	    </div>
+	    <div id="space-for-input"></div>
+	</div>
+	
+    <button addbuttons type="button" class="btn btn-info">
+       <span class="glyphicon glyphicon-plus"></span>
+    </button>
+    <button type="button" class="btn btn-info" ng-click="saveData()">
+       <span class="glyphicon glyphicon-ok"></span>
+    </button>
+
 </div>
