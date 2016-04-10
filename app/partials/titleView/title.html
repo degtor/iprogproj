@@ -1,3 +1,12 @@
-<div id="title">
+<div id="title" ng-app="ideaPlanner" ng-controller="titleCtrl">
     <h1>TITLE</h1>
+    <h3>What's the title of your company?</h4>
+        <div>
+            <input type="text" placeholder="Write the title here..."></input>
+            <button type="button" class="btn btn-info" ng-click="saveData()">Submit and save</button>
+
+        </div>
+        <h4>Perhaps it can contain these words since you have used them in your pitch...</h4>
+        <div class="col-md-2" ng-repeat="word in titleSuggestions"><p>{{word}}</p></div>
+
 </div>

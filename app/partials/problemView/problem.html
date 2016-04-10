@@ -1,3 +1,55 @@
-<div id="problem">
-    <h1>PROBLEM</h1>
+<div id="problem" ng-controller="ProblemCtrl">
+    <h1>PROBLEM/OPPORTUNITY</h1>
+<!--    <form>
+        <input style="width:200px;" type="text" placeholder="Name">
+        <button type="submit">Submit</button>
+    </form>-->
+<!--    <form class="form-horizontal" ng-submit="AddText()">
+        <fieldset>
+
+            &lt;!&ndash; Form Name &ndash;&gt;
+            <legend>Create some problems</legend>
+
+            &lt;!&ndash; Text input&ndash;&gt;
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="txtTitle">Title</label>
+                <div class="col-md-4">
+                    <input id="txtTitle" name="txtTitle" ng-model="title" type="text" placeholder="placeholder" class="form-control input-md">
+
+                </div>
+            </div>
+
+            &lt;!&ndash; Button &ndash;&gt;
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-4">
+                    <input id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit" value="Publish" />
+                </div>
+            </div>
+
+        </fieldset>
+    </form>-->
+    <p>Describe the pain that you're alleviating and the pleasure you're providing</p>
+    <div id="inputContainer">
+        <div class="row">
+            <div class="col-xs-4">
+                <input type="text" ng-model="problem" placeholder="Problem"></input>
+            </div>
+            <span class="glyphicon glyphicon-arrow-right"></span>
+            <div class="col-xs-4">
+                <input type="text" ng-model="opportunity" placeholder="Opportunity"></input>
+            </div>
+        </div>
+        <div id="space-for-input"></div>
+    </div>
+
+    <button addinput type="button" class="btn btn-info">
+        Add extra field
+        <!--<span class="glyphicon glyphicon-plus"></span>-->
+    </button>
+    <button type="button" class="btn btn-info" ng-click="saveData()">
+        <span class="glyphicon glyphicon-ok"></span>
+    </button>
+
+    <pre>{{ data | json }}</pre>
 </div>
