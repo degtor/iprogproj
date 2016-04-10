@@ -1,3 +1,26 @@
-<div id="valueprop">
+<div ng-controller="ValueCtrl">
+  <div id="valueAnimate"></div>
+  <div id="valueprop">
     <h1>VALUE PROPOSITION</h1>
+    <div class="row">
+      <div class="stakeholder-card column-25" ng-repeat="card in cards">
+        <form>
+          <inputfield>
+            <img ng-src="images/{{ image }}" />
+            <select ng-model="chosenImage" ng-change="changeImage(chosenImage)">
+              <option ng-repeat="person in persons">{{ person }}</option>
+            </select>
+            <input type="text" placeholder="Who is this?">
+            <p> What is the value provided to this stakeholder?</p>
+            <select ng-model="chosenValue" ng-change="changeValue(chosenValue)">
+              <option ng-repeat="value in values">{{ value }}</option>
+            </select>
+          </inputfield>
+        </form>
+      </div>
+      <div class="addNewCard column column-25" ng-click="addNewCard()">
+        <img ng-src="images/cross.png">
+      </div>
+    </div>
+  </div>
 </div>

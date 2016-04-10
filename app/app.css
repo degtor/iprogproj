@@ -91,6 +91,38 @@
   top: 0;
 }
 
+.stakeholder-card {
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  padding: 1em 1em 1em 1em;
+  background-color: white;
+}
+
+.stakeholder-card img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.addNewCard {
+  border-style: dashed;
+  border-width: 1px 1px 1px 1px;
+  margin-left: 1em;
+  max-width: 40%;
+  background-color: white;
+}
+
+#valueAnimate {
+  animation-duration: 2s;
+  animation-delay: 0s;
+  position: fixed;
+  max-width: 100%;
+  width: 100%;
+  top: 15em;
+  margin-left: -40em;
+  z-index: -1;
+}
+
 .fullpage-wrapper {
   position: relative;
   padding: 10px;
