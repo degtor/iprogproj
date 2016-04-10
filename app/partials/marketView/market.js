@@ -1,14 +1,12 @@
 'use strict';
 
-angular.module('myApp.business', ['ngRoute'])
+ideaPlanner.controller("marketCtrl", function($scope) {
 
-    .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/business', {
-            templateUrl: '/partials/businessView/business.html',
-            controller: 'BusinessCtrl'
-        });
-    }])
+    $scope.labels =["Tech", "Work", "Hardware", "Software", "PR"];
 
-    .controller('BusinessCtrl', [function() {
+    $scope.data = [
+        [20, 10, 15, 30, 25]
+      ];
 
-    }]);
+  });
+

@@ -21,7 +21,7 @@ ideaPlanner.controller("problemCtrl", function($scope) {
 	}
 });
 
-ideaPlanner.directive("addbuttons", function($compile){
+ideaPlanner.directive("addinput", function($compile){
 	return function(scope, element, attrs){
 		element.bind("click", function(){
 			angular.element(document.getElementById('space-for-input')).append($compile('<div class="row"><div class="col-xs-4"><input type="text" placeholder="Problem"></input></div><span class="glyphicon glyphicon-arrow-right"></span><div class="col-xs-4"><input type="text"  placeholder="Opportunity"></input></div></div>')(scope));
