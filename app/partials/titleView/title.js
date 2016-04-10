@@ -1,14 +1,10 @@
 'use strict';
 
-angular.module('myApp.business', ['ngRoute'])
+ideaPlanner.controller("titleCtrl", function($scope) {
 
-    .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/business', {
-            templateUrl: '/partials/businessView/business.html',
-            controller: 'BusinessCtrl'
-        });
-    }])
+    $scope.saveData = function() {
+        console.log('ok');
+    }
 
-    .controller('BusinessCtrl', [function() {
-
-    }]);
+    $scope.titleSuggestions = ['Cool', 'Squirrel', 'Digital', 'UX']
+});

@@ -1,3 +1,56 @@
-<div id="marketplan">
-    <h1>MARKET PLAN</h1>
+<div id="marketplan" ng-app="ideaPlanner">
+    <div ng-controller="marketCtrl">
+        <h1>MARKET PLAN</h1>
+        <p>How will you spend your money?</p>
+
+        <div class="col-md-8">
+            <canvas id="radar" class="chart chart-radar" chart-data="data" chart-labels="labels"></canvas>
+        </div>
+
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-xs-4">
+                    <input ng-model="labels[0]" type="text"></input>
+                </div>
+                <div class="col-xs-4">
+                    <input ng-model="data[0][0]"  type="text"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <input ng-model="labels[1]" type="text"></input>
+                </div>
+                <div class="col-xs-4">
+                    <input ng-model="data[0][1]"  type="text"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <input ng-model="labels[2]" type="text"></input>
+                </div>
+                <div class="col-xs-4">
+                    <input ng-model="data[0][2]"  type="text"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <input ng-model="labels[3]" type="text"></input>
+                </div>
+                <div class="col-xs-4">
+                    <input ng-model="data[0][3]"  type="text"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <input ng-model="labels[4]" type="text"></input>
+                </div>
+                <div class="col-xs-4">
+                    <input ng-model="data[0][4]"  type="text"></input>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
 </div>
