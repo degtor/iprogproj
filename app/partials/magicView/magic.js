@@ -1,15 +1,4 @@
 'use strict';
-
-/*
-angular.module('ideaPlanner.magic', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/magic', {
-    templateUrl: '/partials/magicView/magic.html',
-    controller: 'magicCtrl'
-  });
-}]); */
-
 ideaPlanner.controller("magicCtrl", ["$scope", function($scope) {
 
   $scope.vennInput = {

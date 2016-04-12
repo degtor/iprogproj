@@ -1,6 +1,6 @@
 'use strict';
 
-var ideaPlanner = angular.module('myApp', ['ngRoute', 'duScroll', 'firebase', 'chart.js', 'angular-venn']);
+var ideaPlanner = angular.module('myApp', ['ngRoute', 'duScroll', 'firebase', 'chart.js', 'angular-venn', 'ui.bootstrap.progressbar', 'ui.bootstrap.tpls']);
 
 
 ideaPlanner.config(['$routeProvider', function($routeProvider) {

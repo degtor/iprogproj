@@ -1,14 +1,19 @@
-ideaPlanner.controller('ProblemCtrl', ['$scope', '$firebaseObject', function($scope, $firebaseObject) {
+ideaPlanner.controller('ProblemCtrl', ['$scope', '$firebaseObject', 'Idea', function($scope, $firebaseObject, Idea) {
 
     var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
-    var fb = $firebaseObject(ref);
-
     $scope.data = $firebaseObject(ref);
 
-
     $scope.saveData = function () {
-        var problem = $scope.problem;
-        var opportunity = $scope.opportunity;
+        // Function run through factory to update progressbar. 10 is just a approx. weighted number of total progress.
+        Idea.updateProgressValue(10);
+
+        if ($scope.problem || $scope.opportunity !== undefined) {
+            var problem = $scope.problem;
+            var opportunity = $scope.opportunity;
+        } else {
+            var problem = '';
+            var opportunity = '';
+        }
         if ($scope.problem2 || $scope.opportunity2 !== undefined) {
             var problem2 = $scope.problem2;
             var opportunity2 = $scope.opportunity2;
@@ -20,7 +25,7 @@ ideaPlanner.controller('ProblemCtrl', ['$scope', '$firebaseObject', function($sc
         ref.once("value", function (snapshot) {
             snapshot.forEach(function (childSnapshot) {
                 var key = childSnapshot.key();
-                ref.child(key).child('page1').update({
+                ref.child(key).child('page1').set({
                     problem: problem,
                     opportunity: opportunity,
                     problem2: problem2,
@@ -30,12 +35,21 @@ ideaPlanner.controller('ProblemCtrl', ['$scope', '$firebaseObject', function($sc
         });
     };
 
+    $scope.resetData = function () {
+        ref.once("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                var key = childSnapshot.key();
+                ref.child(key).child('page1').remove();
+            });
+        });
+    };
+
 }]);
 
 ideaPlanner.directive("addinput", function($compile){
     return function(scope, element, attrs){
         element.bind("click", function(){
-            angular.element(document.getElementById('space-for-input')).append($compile('<div class="row"><div class="col-xs-4"><input type="text" ng-model="problem2" placeholder="Problem"></input></div><span class="glyphicon glyphicon-arrow-right"></span><div class="col-xs-4"><input type="text" ng-model="opportunity2" placeholder="Opportunity"></input></div></div>')(scope));
+            angular.element(document.getElementById('space-for-input')).append($compile('<div class="row"><div class="col-xs-4"> <textarea class="form-control" ng-model="problem2" placeholder="Problem" rows="5"></textarea></div><span class="glyphicon glyphicon-arrow-right"></span><div class="col-xs-4"> <textarea class="form-control" ng-model="opportunity2" placeholder="Opportunity" rows="5"></textarea></div></div>')(scope));
             element.remove();
         });
     };

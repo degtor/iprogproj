@@ -1,35 +1,30 @@
 var FIREBASE_URI = "https://sizzling-torch-8958.firebaseio.com";
 
-ideaPlanner.factory('Idea', ['$firebase', FIREBASE_URI, function ($firebase, FIREBASE_URI) {
+ideaPlanner.factory('Idea', function () {
 
     // Skeleton database is set up in firebasesetup.js
     // Ref is a connection to database/pages
     var ref = new Firebase(FIREBASE_URI);
-    var items = $firebase(ref);
+    var progressValue = 0;
 
-
-    var getItems = function () {
-        return items;
+    var updateProgressValue = function (val) {
+        progressValue = progressValue + val;
     };
 
-    var addItem = function (item) {
-        items.$add(item);
-    };
+    var getProgressValue = function () {
+        return progressValue;
 
-    var updateItems = function(id) {
-        items.$save(id);
-    };
-
-    var removeItem = function(id) {
-        items.$remove(id);
     };
 
     return {
-        getItems: getItems,
-        addItem: addItem,
-        updateItems: updateItems,
-        removeItem: removeItem
+        updateProgressValue: updateProgressValue,
+        getProgressValue:  getProgressValue
     }
+
+        //getItems: getItems,
+        //addItem: addItem,
+        //updateItems: updateItems,
+        //removeItem: removeItem
 
 
     /*//Submit answer to progress
@@ -75,4 +70,4 @@ ideaPlanner.factory('Idea', ['$firebase', FIREBASE_URI, function ($firebase, FIR
 
 
 return this;*/
-}]);
+});
