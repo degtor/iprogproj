@@ -1,8 +1,12 @@
-ideaPlanner.controller('ProblemCtrl', ['$scope', '$firebaseObject', 'Idea', function($scope, $firebaseObject, Idea) {
+ideaPlanner.controller('ProblemCtrl', ['$scope', '$firebaseObject', 'Idea', '$location', function($scope, $firebaseObject, Idea, $location) {
 
     var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
     $scope.data = $firebaseObject(ref);
+
     var session = Idea.getSessionID();
+
+    // Gör så att urlen blir samma på reload. Funkar oftast?!
+    $location.url(session.key());
 
     $scope.saveData = function () {
 

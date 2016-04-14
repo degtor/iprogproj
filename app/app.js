@@ -13,6 +13,5 @@ ideaPlanner.config(function($routeProvider) {
         templateUrl: 'partials/fullpageView/fullpage.html'
     })
 
-
     .otherwise({ redirectTo: '/' });
 });
