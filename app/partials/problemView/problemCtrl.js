@@ -2,8 +2,10 @@ ideaPlanner.controller('ProblemCtrl', ['$scope', '$firebaseObject', 'Idea', func
 
     var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
     $scope.data = $firebaseObject(ref);
+    var session = Idea.getSessionID();
 
     $scope.saveData = function () {
+
         // Function run through factory to update progressbar. 10 is just a approx. weighted number of total progress.
         Idea.updateProgressValue(10);
 
@@ -22,27 +24,23 @@ ideaPlanner.controller('ProblemCtrl', ['$scope', '$firebaseObject', 'Idea', func
             var opportunity2 = '';
         }
 
-        ref.once("value", function (snapshot) {
-            snapshot.forEach(function (childSnapshot) {
-                var key = childSnapshot.key();
-                ref.child(key).child('page1').set({
-                    problem: problem,
-                    opportunity: opportunity,
-                    problem2: problem2,
-                    opportunity2: opportunity2
-                });
-            });
+
+        session.child('page1').set({
+            problem: problem,
+            opportunity: opportunity,
+            problem2: problem2,
+            opportunity2: opportunity2
         });
     };
 
-    $scope.resetData = function () {
-        ref.once("value", function (snapshot) {
+   /* $scope.resetData = function () {
+        ref.once("value", fun   ction (snapshot) {
             snapshot.forEach(function (childSnapshot) {
                 var key = childSnapshot.key();
                 ref.child(key).child('page1').remove();
             });
         });
-    };
+    };*/
 
 }]);
 
