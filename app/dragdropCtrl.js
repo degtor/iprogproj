@@ -7,10 +7,11 @@ Repo: https://github.com/codef0rmer/angular-dragdrop
 Exempel & metoder: http://codef0rmer.github.io/angular-dragdrop/#!/#%2F
 Praktiskt exempel (egentligen, EXAKT detta): http://embed.plnkr.co/jAcWGF/
 
-*/
+Addas till bower.json med "angular-dragdrop": "1.0.13", 
+
+
 
 ideaPlanner.controller('dragdropCtrl', function($scope, $timeout) {
-  console.log($scope);
   $scope.images = [{ 'thumb': '1.png' }];
   $scope.list1 = [];
   angular.forEach($scope.images, function(val, key) {
@@ -45,3 +46,5 @@ ideaPlanner.controller('dragdropCtrl', function($scope, $timeout) {
     console.log('I`m not, hehe');
   };
 });
+
+*/

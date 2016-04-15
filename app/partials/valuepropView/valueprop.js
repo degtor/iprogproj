@@ -1,24 +1,26 @@
 'use strict';
 
-/*
-angular.module('myApp.business', ['ngRoute'])
-
-    .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/business', {
-            templateUrl: '/partials/businessView/business.html',
-            controller: 'BusinessCtrl'
-        });
-    }]) */
-
 ideaPlanner.controller('ValueCtrl', ["$scope", function($scope) {
-  $scope.values = ["select a value...", "fun", "happiness", "money", "security"];
-  $scope.persons = ["select a picture...", "businessman", "businesswomen", "man", "women"];
+  $scope.values = [{ option: "select a value..." },
+    { option: "fun" },
+    { option: "happiness" },
+    { option: "money" },
+    { option: "security" }
+  ];
+
+  $scope.persons = [{ option: "select a picture..." },
+    { option: "businessman" },
+    { option: "businesswomen" },
+    { option: "man" },
+    { option: "women" }
+  ];
+
   $scope.cards = [];
+
   $scope.card = function() {
-    console.log("Hello!");
-    this.id = $scope.cards.length + 1;
-    this.picture = "anonym.jpg";
     this.name = $scope.persons[0];
+    this.cardId = "card" + ($scope.cards.length + 1);
+    this.image = $scope.changeImage($scope.persons[0]);
     this.value = $scope.values[0];
   };
 
@@ -26,20 +28,32 @@ ideaPlanner.controller('ValueCtrl', ["$scope", function($scope) {
 
   $scope.addNewCard = function() {
     var newCard = new $scope.card();
-    console.log(newCard);
     $scope.cards.push(newCard);
+    console.log($scope.cards);
   };
 
   $scope.changeImage = function(selectedImage) {
-    var selectedImage = selectedImage + ".jpg";
-    $scope.image = selectedImage;
+    if (selectedImage["option"] !== "select a picture...") {
+      var selectedImage = selectedImage["option"] + ".jpg";
+      return selectedImage;
+    } else {
+      return "anonym.jpg";
+    }
   };
 
   $scope.changeValue = function(chosenValue) {
     $scope.animationDiv.empty();
     if (chosenValue !== "select a value...") {
-      var selectedValue = chosenValue + ".png";
+      var selectedValue = chosenValue["option"] + ".png";
       var animInstance = $scope.animationDiv.append("<img src=" + "images/" + selectedValue + " class='animated fadeInRightBig slower'>");
+    }
+  };
+
+  $scope.removeCard = function(cardToRemove) {
+    for (var i = 0; i < $scope.cards.length; i++) {
+      if (cardToRemove.cardId == $scope.cards[i].cardId) {
+        $scope.cards.splice(i, 1);
+      }
     }
   };
 

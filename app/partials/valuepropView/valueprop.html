@@ -3,22 +3,21 @@
   <div id="valueprop">
     <h1>VALUE PROPOSITION</h1>
     <div class="row">
-      <div class="stakeholder-card column-25" ng-repeat="card in cards">
+      <div class="stakeholder-card column-25" ng-repeat="card in cards" id="{{card.cardId}}">
+        <a href="" ng-click="removeCard(card)"><img ng-src="images/delete.svg" class="removeButton"></a>
         <form>
           <inputfield>
-            <img ng-src="images/{{ image }}" />
-            <select ng-model="chosenImage" ng-change="changeImage(chosenImage)">
-              <option ng-repeat="person in persons">{{ person }}</option>
+            <img ng-src="images/{{ card.image }}" />
+            <select ng-model="card.name" ng-options="person.option for person in persons" ng-change="card.image = changeImage(card.name)">
             </select>
             <input type="text" placeholder="Who is this?">
             <p> What is the value provided to this stakeholder?</p>
-            <select ng-model="chosenValue" ng-change="changeValue(chosenValue)">
-              <option ng-repeat="value in values">{{ value }}</option>
+            <select ng-model="card.value" ng-options="value.option for value in values" ng-change="changeValue(card.value)">
             </select>
           </inputfield>
         </form>
       </div>
-      <div class="addNewCard column column-25" ng-click="addNewCard()">
+      <div class="addNewCard column column-25" ng-click="addNewCard()" ng-if="cards.length < 3">
         <img ng-src="images/cross.png">
       </div>
     </div>

@@ -102,7 +102,9 @@
   top: 0;
 }
 
-.stakeholder-card {
+.stakeholder-card,
+.addNewCard {
+  position: relative;
   width: 300px;
   border-style: solid;
   border-width: 1px 1px 1px 1px;
@@ -118,10 +120,10 @@
 
 .addNewCard {
   border-style: dashed;
-  border-width: 1px 1px 1px 1px;
   margin-left: 1em;
   max-width: 40%;
   background-color: white;
+  height: 534px;
 }
 
 #valueAnimate {
@@ -144,4 +146,13 @@
   margin-top: 15%;
   width: 50%;
   text-align: center;
+}
+
+.removeButton {
+  width: 1.5em;
+  height: 1.5em;
+  position: absolute;
+  right: -1.2em;
+  top: -1.2em;
+  z-index: 9999;
 }
