@@ -1,35 +1,52 @@
-var FIREBASE_URI = "https://sizzling-torch-8958.firebaseio.com";
 
-ideaPlanner.factory('Idea', ['$firebase', FIREBASE_URI, function ($firebase, FIREBASE_URI) {
+
+ideaPlanner.factory('Idea',  function ($location) {
+
+
 
     // Skeleton database is set up in firebasesetup.js
     // Ref is a connection to database/pages
-    var ref = new Firebase(FIREBASE_URI);
-    var items = $firebase(ref);
+    var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
 
+    //Clears database on initiation.
+    ref.remove();
 
-    var getItems = function () {
-        return items;
+    // sessionID stores the unique value created on initial push. Used for referencing a users session.
+    var sessionID = ref.push({'user': 'user'});
+
+    var getSessionID = function () {
+        return sessionID;
     };
 
-    var addItem = function (item) {
-        items.$add(item);
+/*
+    console.log($location.absUrl());
+    // $location.path(sessionID.key());
+    console.log($location.absUrl());
+    console.log($location.url('/humbug'));
+*/
+
+    var progressValue = 0;
+
+    var updateProgressValue = function (val) {
+        progressValue = progressValue + val;
     };
 
-    var updateItems = function(id) {
-        items.$save(id);
+    var getProgressValue = function () {
+        return progressValue;
+
     };
 
-    var removeItem = function(id) {
-        items.$remove(id);
-    };
 
     return {
-        getItems: getItems,
-        addItem: addItem,
-        updateItems: updateItems,
-        removeItem: removeItem
+        updateProgressValue: updateProgressValue,
+        getProgressValue:  getProgressValue,
+        getSessionID: getSessionID
     }
+
+        //getItems: getItems,
+        //addItem: addItem,
+        //updateItems: updateItems,
+        //removeItem: removeItem
 
 
     /*//Submit answer to progress
@@ -75,4 +92,4 @@ ideaPlanner.factory('Idea', ['$firebase', FIREBASE_URI, function ($firebase, FIR
 
 
 return this;*/
-}]);
+});

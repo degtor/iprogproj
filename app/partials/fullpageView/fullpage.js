@@ -1,15 +1,17 @@
 /*
-'use strict';
+ideaPlanner.controller('RouteCtrl', [function($scope, $routeParams) {
+    var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
 
-angular.module('myApp.fullpage', ['ngRoute'])
+    //Clears database on initiation.
+    ref.remove();
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/fullpage', {
-    templateUrl: 'fullpageView/fullpage.html',
-    controller: 'FullpageCtrl'
-  });
-}])
+    // sessionID stores the unique value created on initial push. Used for referencing a users session.
+    var sessionID = ref.push({'user': 'user'}).key();
+console.log(sessionID);
 
-.controller('FullpageCtrl', [function() {
 
-}]);*/
+
+    $scope.cool = $routeParams.fullpage;
+
+}]);
+*/

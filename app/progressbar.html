@@ -1,11 +1,6 @@
-<div id="progressbar">
-<!--    <ul>
-        <li><a href="#problem">PROBLEM</a></li>
-        <li><a href="#valueprop">VALUE PROPOSITION</a></li>
-        <li><a href="#magic">MAGIC</a></li>
-        <li><a href="#businessmodel">BUSINESS MODEL</a></li>
-        <li><a href="#marketplan">MARKET PLAN</a></li>
-        <li><a href="#analysis">ANALYSIS</a></li>
-        <li><a href="#title">TITLE</a></li>
-    </ul>-->
+<div id="progressbar" style="width:200px;" ng-controller="ProgressCtrl">
+
+    <h3>Progress</h3>
+    <small><em>CUTE</em></small>
+    <uib-progressbar animate="true" value="dynamic()" type="success"><b>{{dynamic()}}%</b></uib-progressbar>
 </div>
