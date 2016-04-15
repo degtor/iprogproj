@@ -1,3 +1,95 @@
-<div id="analysis">
-    <h1>ANALYSIS</h1>
+<div id="analysis" ng-app="ideaPlanner">
+    <div ng-controller="analysisCtrl">
+        <h1>ANALYSIS</h1>
+        <div class="row">
+            <div class="col-md-12">
+            <canvas id="radar" class="chart chart-radar" chart-data="data" chart-labels="labels" chart-series="series" chart-colours="colours"></canvas>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                
+            </div>
+            <div class="col-md-2">
+                <input ng-model="labels[0]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="labels[1]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="labels[2]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="labels[3]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="labels[4]" type="text"></input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <input ng-model="series[0]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[0][0]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[0][1]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[0][2]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[0][3]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[0][4]" type="text"></input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <input ng-model="series[1]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[1][0]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[1][1]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[1][2]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[1][3]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[1][4]" type="text"></input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <input ng-model="series[2]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[2][0]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[2][1]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[2][2]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[2][3]" type="text"></input>
+            </div>
+            <div class="col-md-2">
+                <input ng-model="data[2][4]" type="text"></input>
+            </div>
+        </div>
+
+    </div>
 </div>
