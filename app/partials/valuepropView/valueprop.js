@@ -1,6 +1,7 @@
 'use strict';
 
-ideaPlanner.controller('ValueCtrl', ["$scope", function($scope) {
+ideaPlanner.controller('ValueCtrl', ["$scope", "Idea", function($scope) {
+
   $scope.values = [{ option: "select a value..." },
     { option: "fun" },
     { option: "happiness" },
@@ -15,9 +16,14 @@ ideaPlanner.controller('ValueCtrl', ["$scope", function($scope) {
     { option: "women" }
   ];
 
+  $scope.toBeAddedToProgress = {
+    bool: true
+  };
+
   $scope.cards = [];
 
   $scope.card = function() {
+    this.nickName = "";
     this.name = $scope.persons[0];
     this.cardId = "card" + ($scope.cards.length + 1);
     this.image = $scope.changeImage($scope.persons[0]);
@@ -29,7 +35,6 @@ ideaPlanner.controller('ValueCtrl', ["$scope", function($scope) {
   $scope.addNewCard = function() {
     var newCard = new $scope.card();
     $scope.cards.push(newCard);
-    console.log($scope.cards);
   };
 
   $scope.changeImage = function(selectedImage) {

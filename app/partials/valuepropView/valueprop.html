@@ -5,14 +5,14 @@
     <div class="row">
       <div class="stakeholder-card column-25" ng-repeat="card in cards" id="{{card.cardId}}">
         <a href="" ng-click="removeCard(card)"><img ng-src="images/delete.svg" class="removeButton"></a>
-        <form>
+        <form name="form{{card.cardId}}" if-interacted>
           <inputfield>
             <img ng-src="images/{{ card.image }}" />
-            <select ng-model="card.name" ng-options="person.option for person in persons" ng-change="card.image = changeImage(card.name)">
+            <select ng-model="card.name" ng-options="person.option for person in persons" ng-change="card.image = changeImage(card.name); checkProgress(card);" class="valueInput" name="image">
             </select>
-            <input type="text" placeholder="Who is this?">
+            <input type="text" ng-model="card.nickname" class="valueInput" ng-change="checkProgress(card)" placeholder="Who is this?" name="nickname">
             <p> What is the value provided to this stakeholder?</p>
-            <select ng-model="card.value" ng-options="value.option for value in values" ng-change="changeValue(card.value)">
+            <select ng-model="card.value" class="valueInput" ng-options="value.option for value in values" ng-change="changeValue(card.value); checkProgress(card)" name="value">
             </select>
           </inputfield>
         </form>
