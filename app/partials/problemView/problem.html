@@ -1,27 +1,24 @@
 <div id="problem" ng-controller="ProblemCtrl">
-    <h1>PROBLEM/OPPORTUNITY</h1>
-
-    <p>Describe the pain that you're alleviating and the pleasure you're providing</p>
-    <div id="inputContainer">
-        <div class="row">
-            <div class="col-xs-4">
-                <textarea class="form-control" ng-model="problem" placeholder="Problem" rows="5"></textarea>
-            </div>
-            <span class="glyphicon glyphicon-arrow-right"></span>
-            <div class="col-xs-4">
-                <textarea class="form-control" placeholder="Opportunity" ng-model="opportunity" rows="5"></textarea>
-            </div>
-        </div>
-        <div id="space-for-input"></div>
+  <h1>PROBLEM/OPPORTUNITY</h1>
+  <p>Describe the pain that you're alleviating and the pleasure you're providing</p>
+  <div id="inputContainer">
+    <div class="row">
+      <div class="col-xs-4">
+        <textarea class="form-control" ng-model="problem" placeholder="Problem" rows="5"></textarea>
+      </div>
+      <span class="glyphicon glyphicon-arrow-right"></span>
+      <div class="col-xs-4">
+        <textarea class="form-control" placeholder="Opportunity" ng-model="opportunity" rows="5"></textarea>
+      </div>
     </div>
-
-    <button addinput type="button" class="button button-outline">
-        Add extra field
-        <!--<span class="glyphicon glyphicon-plus"></span>-->
-    </button>
-    <button type="button" class="button" ng-click="saveData()">
-        <span class="glyphicon glyphicon-ok"></span>
-    </button>
-
-   <pre>{{ data | json }}</pre>
+    <div id="space-for-input"></div>
+  </div>
+  <button addinput type="button" class="button button-outline">
+    Add extra field
+    <!--<span class="glyphicon glyphicon-plus"></span>-->
+  </button>
+  <button type="button" class="button" ng-click="saveData()">
+    <span class="glyphicon glyphicon-ok"></span>
+  </button>
+  <pre>{{ data | json }}</pre>
 </div>
