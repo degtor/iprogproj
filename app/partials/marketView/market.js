@@ -7,8 +7,26 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
   $scope.labels = ["Tech", "Work", "Hardware", "Software", "PR"];
 
   $scope.data = [
-    [20, 10, 15, 30, 25]
+    [0, 0, 0, 0, 0]
   ];
+
+  $scope.series = ['My Company']
+
+  $scope.colours = ['#8731BE'];
+
+  $scope.total = null;
+
+  $scope.countTotal = function() {
+    var cost = 0;
+    var i;
+    for (i = 0; i < $scope.data[0].length; i++) {
+      if (($scope.data[0][i]) !== '') {
+        cost += parseInt($scope.data[0][i]);
+      }
+    }
+    $scope.total = cost;
+    return $scope.total
+  }
 
 
   $scope.saveData = function() {
