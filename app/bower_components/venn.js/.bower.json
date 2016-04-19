@@ -1,0 +1,32 @@
+{
+  "name": "venn.js",
+  "main": "venn.js",
+  "version": "0.2.7",
+  "homepage": "https://github.com/benfred/venn.js",
+  "authors": [
+    "Ben Frederickson (ben@benfrederickson.com)"
+  ],
+  "description": "A javascript library for laying out area proportional venn and euler diagrams",
+  "keywords": [
+    "venn",
+    "d3",
+    "euler"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.2.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.7",
+    "commit": "6ee5e31d585a2f7bde12547cc3651e47d12e9a6b"
+  },
+  "_source": "git://github.com/benfred/venn.js.git",
+  "_target": "*",
+  "_originalSource": "venn.js"
+}

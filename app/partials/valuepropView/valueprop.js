@@ -1,6 +1,14 @@
 'use strict';
 
-ideaPlanner.controller('ValueCtrl', ["$scope", "Idea", function($scope) {
+ideaPlanner.controller('ValueCtrl', ["$scope", '$firebaseObject', 'Idea', '$location', function($scope, $firebaseObject, Idea, $location) {
+
+  var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
+  $scope.data = $firebaseObject(ref);
+
+  var session = Idea.getSessionID();
+
+  // Gör så att urlen blir samma på reload. Funkar oftast?!
+  $location.url(session.key());
 
   $scope.values = [{ option: "select a value..." },
     { option: "fun" },
@@ -20,7 +28,9 @@ ideaPlanner.controller('ValueCtrl', ["$scope", "Idea", function($scope) {
     bool: true
   };
 
-  $scope.cards = [];
+  if ($scope.cards === undefined) {
+    $scope.cards = [];
+  }
 
   $scope.card = function() {
     this.nickName = "";
@@ -59,6 +69,20 @@ ideaPlanner.controller('ValueCtrl', ["$scope", "Idea", function($scope) {
       if (cardToRemove.cardId == $scope.cards[i].cardId) {
         $scope.cards.splice(i, 1);
       }
+    }
+  };
+
+  $scope.writeDB = function() {
+    for (var i = 0; i < $scope.cards.length; i++) {
+      session.child('page3').set({
+        "cards": {
+          card: $scope.cards[i].cardId,
+          nickName: $scope.cards[i].nickName,
+          name: $scope.cards[i].name,
+          image: $scope.cards[i].image,
+          value: $scope.cards[i].value
+        }
+      });
     }
   };
 

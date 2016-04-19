@@ -1,12 +1,10 @@
 <div id="magic" ng-app="ideaPlanner">
-  <h1>MAGIC</h1>
+  <h1>Elevator pitch</h1>
   <div>
-    <p>The underlying magic of this product is...</p>
-    <input type="text" placeholder="What is it?">
-    <p>You could almost say it's like...</p>
+    <p>Every startup needs a cheesy pitch line where you compare your company to an existing service and then tell what sets your startup apart. Enter yours below: </p>
   </div>
   <div class="row" ng-controller="magicCtrl" ng-model="vennInput">
-    <form>
+    <form if-interacted>
       <fieldset>
         <div class="column">
           <label for="mgc-like">It's like...</label>

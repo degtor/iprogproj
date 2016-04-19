@@ -52,7 +52,7 @@ ideaPlanner.directive('ifInteracted', ['Idea', function(Idea) {
           }
         }
         if (countToMatch === trues) {
-          scopeToUse.pushToDB.bool = true;
+          scopeToUse.writeDB();
           if (scopeToUse.toBeAddedToProgress.bool === true) {
             Idea.updateProgressValue(10);
             scopeToUse.toBeAddedToProgress.bool = false;
