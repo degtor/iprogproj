@@ -12,9 +12,9 @@ ideaPlanner.controller("analysisCtrl", ['$scope', 'Idea', function($scope, Idea)
         [10, 40, 25, 20, 25]
     ];
 
-    $scope.series = ['My company', 'Other Company', 'Other Company 2']
+    $scope.series = ['My company', 'Other Company', 'Other Company 2'];
 
-    $scope.colours = ['#8731BE']
+    $scope.colours = ['#8731BE'];
 
 
     $scope.saveData = function () {
@@ -23,12 +23,28 @@ ideaPlanner.controller("analysisCtrl", ['$scope', 'Idea', function($scope, Idea)
 
         var session = Idea.getSessionID();
 
-        session.child('page5').set({
-            Tech: $scope.data[0][0],
-            Work: $scope.data[0][1],
-            Hardware: $scope.data[0][2],
-            Software: $scope.data[0][3],
-            PR: $scope.data[0][4]
+        session.child('page6').set({
+            Mycompany: {
+                Experience: $scope.data[0][0],
+                Cost: $scope.data[0][1],
+                Quality: $scope.data[0][2],
+                Marketshare: $scope.data[0][3],
+                MainIdea: $scope.data[0][4]
+            },
+            othercompany: {
+                Experience: $scope.data[1][0],
+                Cost: $scope.data[1][1],
+                Quality: $scope.data[1][2],
+                Marketshare: $scope.data[1][3],
+                MainIdea: $scope.data[1][4]
+            },
+            othercompany2: {
+                Experience: $scope.data[2][0],
+                Cost: $scope.data[2][1],
+                Quality: $scope.data[2][2],
+                Marketshare: $scope.data[2][3],
+                MainIdea: $scope.data[2][4]
+            }
         });
 
     };

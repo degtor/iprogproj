@@ -431,6 +431,7 @@ a {
 }
 a:hover {
   color: #606c76;
+  text-decoration:none;
 }
 
 dl,

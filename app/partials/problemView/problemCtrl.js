@@ -38,7 +38,7 @@ ideaPlanner.controller('ProblemCtrl', ['$scope', '$firebaseObject', 'Idea', '$lo
     };
 
    /* $scope.resetData = function () {
-        ref.once("value", fun   ction (snapshot) {
+        ref.once("value", function (snapshot) {
             snapshot.forEach(function (childSnapshot) {
                 var key = childSnapshot.key();
                 ref.child(key).child('page1').remove();

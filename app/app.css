@@ -15,6 +15,8 @@
   background-color: #9b4dca;
 }
 
+
+
 .menu:after {
   content: "]";
 }
@@ -61,6 +63,10 @@
 #title {
   height: 100vh;
   max-width: 100vw;
+}
+
+a.active {
+  background: #D2A4EE;
 }
 
 #fixed {
