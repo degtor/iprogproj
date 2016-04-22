@@ -10,6 +10,10 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
     [0, 0, 0, 0, 0]
   ];
 
+  $scope.toBeAddedToProgress = {
+    bool: true
+  };
+
   $scope.series = ['My Company']
 
   $scope.colours = ['#8731BE'];
@@ -29,9 +33,9 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
   }
 
 
-  $scope.saveData = function() {
+  $scope.writeDB = function() {
     // Function run through factory to update progressbar. 10 is just a approx. weighted number of total progress.
-    Idea.updateProgressValue(10);
+    //Idea.updateProgressValue(10);
 
     var session = Idea.getSessionID();
 

@@ -15,6 +15,15 @@
   background-color: #9b4dca;
 }
 
+#nav img {
+  height: 30px;
+  width: 30px;
+}
+
+#nav a {
+  margin-left: 1vw;
+}
+
 .menu:after {
   content: "]";
 }
@@ -52,20 +61,52 @@
   text-align: center;
 }
 
+li {
+  display: inline-flex;
+}
 
-#valueprop, #problem, #magic, #businessmodel, #market, #analysis, #title {
-  height:100vh;
-  width:80vw;
+#valueprop,
+#problem,
+#magic,
+#businessmodel,
+#marketplan,
+#analysis,
+#map,
+#title {
+  height: 100vh;
+  max-width: 100vw;
+  z-index: 9999;
+}
 
+.angular-google-map-container {
+  height: 70vh;
+  width: 50vw;
+}
+
+li.active {
+  background: #D2A4EE;
+  font-weight: bold;
+  transition: all 300ms ease-in-out;
 }
 
 #fixed {
   position: fixed;
+  max-width: 20%;
+  /* width: 205px; */
 }
 
 #nav ul {
-  padding: 10px;
+  padding: 5px;
   list-style: none;
+}
+
+#nav {
+  max-width: 100%;
+}
+
+#nav li {
+  border-radius: 5px;
+  padding: 5px;
 }
 
 #dropbox {
@@ -95,6 +136,7 @@
 .addNewCard {
   position: relative;
   width: 300px;
+  max-height: 80vh;
   border-style: solid;
   border-width: 1px 1px 1px 1px;
   padding: 1em 1em 1em 1em;

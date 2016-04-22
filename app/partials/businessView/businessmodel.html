@@ -1,24 +1,27 @@
 <div id="businessmodel" ng-app="ideaPlanner" ng-controller="businessCtrl">
-    <h1>BUSINESS MODEL</h1>
-    <div class="row">
-        <div class="col-xs-6">
-            <h3>Who has your money?</h3>
-            <div class="imgList" ng-repeat="img in returnAllImg()">
-                <div class="col-xs-3" id="{{ img }}" ng-click="pickPerson(img)">
-                    <img ng-src='images/{{ img }}.png' style="width:100%;height:100%;">
-                    <p>{{ img }}</p>
-                </div>
-            </div>
+  <h1>BUSINESS MODEL</h1>
+  <div class="row">
+    <div class="col-xs-6">
+      <h3>Who has your money?</h3>
+      <div class="imgList" ng-repeat="img in returnAllImg()">
+        <div class="col-xs-3" id="{{ img }}" ng-click="pickPerson(img)">
+          <img ng-src='images/{{ img }}.png' style="width:100%;height:100%;">
+          <p>{{ img }}</p>
         </div>
-        <div class="col-xs-6">
-            <h3>How are you going to get it?</h3>
-            <div ng-repeat="money in returnAllMoney()">
-                <button type="button" id="{{ money }}" ng-click="pickMoney(money)">{{ money }}</button>
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="row" ng-if="input">
-        <h3>You want to take these guys <img ng-src='images/{{ getPickedPerson() }}.png' style="width:50px;height:50px;"> money by {{ getPickedMoney() }}</h3> 
+    <div class="col-xs-6">
+      <h3>How are you going to get it?</h3>
+      <div ng-repeat="money in returnAllMoney()">
+        <button type="button" id="{{ money }}" ng-click="pickMoney(money)">{{ money }}</button>
+      </div>
     </div>
-
+  </div>
+  <div class="row" ng-if="input">
+    <h3>You want to take these guys <img ng-src='images/{{ getPickedPerson() }}.png' style="width:50px;height:50px;"> money by {{ getPickedMoney() }}</h3>
+  </div>
+  <!--
+  <button type="button" class="button" ng-click="saveData()">
+    <span class="glyphicon glyphicon-ok"></span>
+  </button> -->
 </div>

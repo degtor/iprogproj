@@ -2,11 +2,16 @@
 ideaPlanner.controller("magicCtrl", ['$scope', '$firebaseObject', 'Idea', '$location', function($scope, $firebaseObject, Idea, $location) {
 
   var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
+  $scope.data = $firebaseObject(ref);
   var session = Idea.getSessionID();
   $location.url(session.key());
 
   $scope.toBeAddedToProgress = {
     bool: true
+  };
+
+  $scope.addToDB = {
+    bool: false
   };
 
   if ($scope.like || $scope.for || $scope.with === undefined) {
@@ -35,6 +40,7 @@ ideaPlanner.controller("magicCtrl", ['$scope', '$firebaseObject', 'Idea', '$loca
   };
 
   $scope.writeDB = function() {
+    $scope.$apply();
     session.child('page3').set({
       like: $scope.vennInput.like,
       for: $scope.vennInput.for,

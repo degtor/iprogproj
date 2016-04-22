@@ -16,12 +16,23 @@ ideaPlanner.directive('ifInteracted', ['Idea', function(Idea) {
 
       var inputs = elem[0].querySelectorAll("input");
       if (typeof inputs !== "undefined") {
-        if (typeof inputs[0].length !== "undefined") {
+        if (typeof inputs.length !== "undefined") {
           for (var i = 0; i < inputs.length; i++) {
             inputElements.push(inputs[i]);
           }
         } else {
           inputElements.push(inputs[0]);
+        }
+      }
+
+      var textareas = elem[0].querySelectorAll("textarea");
+      if (typeof textareas !== "undefined") {
+        if (typeof textareas.length !== "undefined") {
+          for (var i = 0; i < textareas.length; i++) {
+            inputElements.push(textareas[i]);
+          }
+        } else {
+          inputElements.push(textareas[0]);
         }
       }
 
@@ -54,7 +65,7 @@ ideaPlanner.directive('ifInteracted', ['Idea', function(Idea) {
         if (countToMatch === trues) {
           scopeToUse.writeDB();
           if (scopeToUse.toBeAddedToProgress.bool === true) {
-            Idea.updateProgressValue(10);
+            Idea.updateProgressValue(12.5);
             scopeToUse.toBeAddedToProgress.bool = false;
           }
         }
