@@ -1,30 +1,27 @@
-<div class="scrollable" scroll-root>
+<div class="scrollable" scroll-root data-spy="scroll" data-target="#nav">
   <div class="container-fluid">
     <div class="row">
       <div class="column column-20">
-        <div id="fixed">
-          <div class="row">
-            <div class="column column-20">
-              <ng-include src="'navbar.html'"></ng-include>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column column-20">
-              <ng-include src="'progressbar.html'"></ng-include>
-            </div>
-          </div>
-        </div>
+        <ng-include src="'navbar.html'"></ng-include>
       </div>
-      <div class="column column-80">
-        <ng-include src="'partials/problemView/problem.html'"></ng-include>
-        <ng-include src="'partials/valuepropView/valueprop.html'"></ng-include>
-        <ng-include src="'partials/magicView/magic.html'"></ng-include>
-        <ng-include src="'partials/businessView/businessmodel.html'"></ng-include>
-        <ng-include src="'partials/marketView/marketplan.html'"></ng-include>
-        <ng-include src="'partials/mapView/map.html'"></ng-include>
-        <ng-include src="'partials/analysisView/analysis.html'"></ng-include>
-        <ng-include src="'partials/titleView/title.html'"></ng-include>
+    </div>
+    <div class="row">
+      <div class="column column-20">
+        <ng-include src="'progressbar.html'"></ng-include>
       </div>
     </div>
   </div>
+</div>
+<div class="column column-80">
+  <ng-include src="'partials/problemView/problem.html'"></ng-include>
+  <ng-include src="'partials/valuepropView/valueprop.html'"></ng-include>
+  <ng-include src="'partials/magicView/magic.html'"></ng-include>
+  <ng-include src="'partials/businessView/businessmodel.html'"></ng-include>
+  <ng-include src="'partials/marketView/marketplan.html'"></ng-include>
+  <ng-include src="'partials/mapView/map.html'"></ng-include>
+  <ng-include src="'partials/analysisView/analysis.html'"></ng-include>
+  <ng-include src="'partials/titleView/title.html'"></ng-include>
+</div>
+</div>
+</div>
 </div>

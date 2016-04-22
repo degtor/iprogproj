@@ -1,32 +1,10 @@
-'use strict';
-
-// angular.module('myApp.business', ['ngRoute'])
-
-//     .config(['$routeProvider', function($routeProvider) {
-//         $routeProvider.when('/business', {
-//             templateUrl: '/partials/businessView/business.html',
-//             controller: 'BusinessCtrl'
-//         });
-//     }])
-
-//     .controller('BusinessCtrl', [function() {
-//     	images = ['hipsters', 'emo'];
-
-//     	$scope.allImg = function() {
-//     		console.log(images)
-//     		return images
-//     	}
-
-//     }]);
-
-
 ideaPlanner.controller("businessCtrl", ['$scope', 'Idea', function($scope, Idea) {
 
 	var images = ['hipsters', 'emo', 'fanatics', 'family'];
 	var money = ['subscriptions', 'one time fee', 'advertising', 'sponsors', 'charity']
 	$scope.input = false;
 	$scope.pickedPerson = null;
-	$scope.pickedMoney = null;;
+	$scope.pickedMoney = null;
 
 $scope.returnAllImg = function() {
 	return images;
@@ -61,5 +39,33 @@ $scope.getPickedMoney = function() {
 		return $scope.pickedMoney;
 	}
 }
+
+	var session = Idea.getSessionID();
+
+	$scope.saveData = function () {
+
+		// Function run through factory to update progressbar. 10 is just a approx. weighted number of total progress.
+		Idea.updateProgressValue(10);
+
+/*		if ($scope.problem || $scope.opportunity !== undefined) {
+			var problem = $scope.problem;
+			var opportunity = $scope.opportunity;
+		} else {
+			var problem = '';
+			var opportunity = '';
+		}
+		if ($scope.problem2 || $scope.opportunity2 !== undefined) {
+			var problem2 = $scope.problem2;
+			var opportunity2 = $scope.opportunity2;
+		} else {
+			var problem2 = '';
+			var opportunity2 = '';
+		}*/
+
+		session.child('page4').set({
+			targetgroup: $scope.getPickedPerson(),
+			method: $scope.getPickedMoney()
+		});
+	};
 
 }]);

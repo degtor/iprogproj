@@ -15,6 +15,15 @@
   background-color: #9b4dca;
 }
 
+#nav img {
+  height: 30px;
+  width: 30px;
+}
+
+#nav a {
+  margin-left: 1vw;
+}
+
 .menu:after {
   content: "]";
 }
@@ -52,6 +61,10 @@
   text-align: center;
 }
 
+li {
+  display: inline-flex;
+}
+
 #valueprop,
 #problem,
 #magic,
@@ -68,13 +81,24 @@
   width: 50vw;
 }
 
+li.active {
+  background: #D2A4EE;
+  font-weight: bold;
+  transition: all 300ms ease-in-out;
+}
+
 #fixed {
   position: fixed;
 }
 
 #nav ul {
-  padding: 10px;
+  padding: 5px;
   list-style: none;
+}
+
+#nav li {
+  border-radius: 5px;
+  padding: 5px;
 }
 
 #dropbox {
