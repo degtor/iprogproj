@@ -14,6 +14,7 @@
     "angular-mocks": "~1.4.0",
     "angular-dragdrop": "1.0.3",
     "angular-venn": "latest",
+    "angular-google-maps": "latest",
     "html5-boilerplate": "~5.2.0",
     "bootstrap": "3.3.6",
     "milligram": "1.1.0",

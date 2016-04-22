@@ -63,6 +63,11 @@
   max-width: 100vw;
 }
 
+.angular-google-map-container {
+  height: 70vh;
+  width: 50vw;
+}
+
 #fixed {
   position: fixed;
 }

@@ -2,6 +2,7 @@
 ideaPlanner.controller("magicCtrl", ['$scope', '$firebaseObject', 'Idea', '$location', function($scope, $firebaseObject, Idea, $location) {
 
   var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
+  $scope.data = $firebaseObject(ref);
   var session = Idea.getSessionID();
   $location.url(session.key());
 
