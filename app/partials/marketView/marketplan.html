@@ -5,57 +5,59 @@
     <div class="col-md-8">
       <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-colours="colours"></canvas>
     </div>
-    <div class="col-md-4">
-      <div class="row">
-        <div class="col-xs-6">
-          <input ng-model="labels[0]" type="text"></input>
+    <form if-interacted>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-xs-6">
+            <input ng-model="labels[0]" type="text">
+          </div>
+          <div class="col-xs-4">
+            <input ng-model="data[0][0]" type="text">
+          </div>
         </div>
-        <div class="col-xs-4">
-          <input ng-model="data[0][0]" type="text"></input>
+        <div class="row">
+          <div class="col-xs-6">
+            <input ng-model="labels[1]" type="text">
+          </div>
+          <div class="col-xs-4">
+            <input ng-model="data[0][1]" type="text">
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-6">
-          <input ng-model="labels[1]" type="text"></input>
+        <div class="row">
+          <div class="col-xs-6">
+            <input ng-model="labels[2]" type="text">
+          </div>
+          <div class="col-xs-4">
+            <input ng-model="data[0][2]" type="text">
+          </div>
         </div>
-        <div class="col-xs-4">
-          <input ng-model="data[0][1]" type="text"></input>
+        <div class="row">
+          <div class="col-xs-6">
+            <input ng-model="labels[3]" type="text">
+          </div>
+          <div class="col-xs-4">
+            <input ng-model="data[0][3]" type="text">
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-6">
-          <input ng-model="labels[2]" type="text"></input>
+        <div class="row">
+          <div class="col-xs-6">
+            <input ng-model="labels[4]" type="text">
+          </div>
+          <div class="col-xs-4">
+            <input ng-model="data[0][4]" type="text">
+          </div>
         </div>
-        <div class="col-xs-4">
-          <input ng-model="data[0][2]" type="text"></input>
+        <div class="row">
+          <p>A total of {{ countTotal() }} $</p>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-6">
-          <input ng-model="labels[3]" type="text"></input>
-        </div>
-        <div class="col-xs-4">
-          <input ng-model="data[0][3]" type="text"></input>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-6">
-          <input ng-model="labels[4]" type="text"></input>
-        </div>
-        <div class="col-xs-4">
-          <input ng-model="data[0][4]" type="text"></input>
-        </div>
-      </div>
-      <div class="row">
-        <p>A total of {{ countTotal() }} $</p>
-      </div>
-      <button type="button" class="button" ng-click="saveData()">
-        <span class="glyphicon glyphicon-ok"></span>
-      </button>
-      <!--            <button type="button" class="btn btn-info" ng-click="resetData()">
-                Reset
-            </button>-->
+        <!--
+        <button type="button" class="button" ng-click="saveData()">
+          <span class="glyphicon glyphicon-ok"></span>
+        </button> -->
+        <button type="button" class="btn btn-info" ng-click="resetData()">
+          Reset
+        </button>
+    </form>
     </div>
   </div>
-</div>
 </div>

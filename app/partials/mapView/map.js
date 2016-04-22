@@ -6,13 +6,15 @@ ideaPlanner.controller("mapCtrl", ['$scope', '$firebaseObject', 'Idea', '$locati
   $scope.data = $firebaseObject(ref);
   var session = Idea.getSessionID();
 
-
-  $scope.save = function(place) {
-    session.child('page7').child('locations').child(place.marker.id).set({
-      id: place.marker.id,
-      latitude: place.marker.coords.latitude,
-      longitude: place.marker.coords.longitude
-    });
+  $scope.writeDB = function(place) {
+    console.log(place);
+    if (place !== undefined) {
+      session.child('page7').child('locations').child(place.marker.id).set({
+        id: place.marker.id,
+        latitude: place.marker.coords.latitude,
+        longitude: place.marker.coords.longitude
+      });
+    }
   };
 
 }]);

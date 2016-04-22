@@ -1,7 +1,7 @@
 <div id="problem" ng-controller="ProblemCtrl">
   <h1>PROBLEM/OPPORTUNITY</h1>
   <p>Describe the pain that you're alleviating and the pleasure you're providing</p>
-  <div id="inputContainer">
+  <div id="inputContainer" if-interacted>
     <div class="row">
       <div class="col-xs-4">
         <textarea class="form-control" ng-model="problem" placeholder="Problem" rows="5"></textarea>
@@ -17,8 +17,9 @@
     Add extra field
     <!--<span class="glyphicon glyphicon-plus"></span>-->
   </button>
+  <!--
   <button type="button" class="button" ng-click="saveData()">
     <span class="glyphicon glyphicon-ok"></span>
-  </button>
+  </button> -->
   <pre>{{ data | json }}</pre>
 </div>

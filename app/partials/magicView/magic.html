@@ -8,11 +8,11 @@
       <fieldset>
         <div class="column">
           <label for="mgc-like">It's like...</label>
-          <input ng-model="vennInput.like" ng-change="updateVennData()" type="text" id="mgc-like" placeholder="Put your business here">
+          <input ng-model="vennInput.like" ng-blur="updateVennData()" type="text" id="mgc-like" placeholder="Put your business here">
           <label for="mgc-for">For...</label>
-          <input ng-model="vennInput.for" ng-change="updateVennData()" type="text" id="mgc-for" placeholder="Put your business here">
+          <input ng-model="vennInput.for" ng-blur="updateVennData()" type="text" id="mgc-for" placeholder="Put your business here">
           <label for="mgc-with">With...</label>
-          <input ng-model="vennInput.with" ng-change="updateVennData()" type="text" id="mgc-with" placeholder="Put your business here">
+          <input ng-model="vennInput.with" ng-blur="updateVennData()" type="text" id="mgc-with" placeholder="Put your business here">
         </div>
       </fieldset>
     </form>

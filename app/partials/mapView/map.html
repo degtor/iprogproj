@@ -1,19 +1,20 @@
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1Rwur3_MDWLqF90TRBWQ5-v90bWhsaBM&callback=initMap"></script>
 <div id="map" ng-app="ideaPlanner">
   <div ng-controller="mapCtrl">
     <h1>Global Business</h1>
     <p>Where is your primary market located?</p>
     <div class="row" ng-controller="mapShit">
-      <div class="column column-30" if-interacted>
-        <input type="text" name="country1" id="place1" ng-model="search1.place" ng-blur="onAdress(search1)">
-        <input type="text" name="country2" id="place2" ng-model="search2.place" ng-blur="onAdress(search2)">
-        <input type="text" name="country3" id="place3" ng-model="search3.place" ng-blur="onAdress(search3)">
+      <div class="column column-30">
+        <form if-interacted>
+          <input type="text" name="country1" id="place1" ng-model="search1.place" ng-blur="onAdress(search1)">
+          <input type="text" name="country2" id="place2" ng-model="search2.place" ng-blur="onAdress(search2)">
+          <input type="text" name="country3" id="place3" ng-model="search3.place" ng-blur="onAdress(search3)">
+        </form>
       </div>
       <div class="column column-70">
         <ui-gmap-google-map center='map.center' zoom='map.zoom' id="gmap">
-          <ui-gmap-marker idKey='search1.marker.id' coords='search1.marker.coords' options.icon='search1.marker.icon'></ui-gmap-marker>
-          <ui-gmap-marker idKey='search2.marker.id' coords='search2.marker.coords'></ui-gmap-marker>
-          <ui-gmap-marker idKey='search3.marker.id' coords='search3.marker.coords'></ui-gmap-marker>
+          <ui-gmap-marker idKey='search1.marker.id' coords='search1.marker.coords' options.icon='iconURL'></ui-gmap-marker>
+          <ui-gmap-marker idKey='search2.marker.id' coords='search2.marker.coords' options.icon='iconURL'></ui-gmap-marker>
+          <ui-gmap-marker idKey='search3.marker.id' coords='search3.marker.coords' options.icon='iconURL'></ui-gmap-marker>
         </ui-gmap-google-map>
       </div>
     </div>

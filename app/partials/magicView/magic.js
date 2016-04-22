@@ -10,6 +10,10 @@ ideaPlanner.controller("magicCtrl", ['$scope', '$firebaseObject', 'Idea', '$loca
     bool: true
   };
 
+  $scope.addToDB = {
+    bool: false
+  };
+
   if ($scope.like || $scope.for || $scope.with === undefined) {
     $scope.like = "it's like...";
     $scope.for = "for...";
@@ -36,6 +40,7 @@ ideaPlanner.controller("magicCtrl", ['$scope', '$firebaseObject', 'Idea', '$loca
   };
 
   $scope.writeDB = function() {
+    $scope.$apply();
     session.child('page3').set({
       like: $scope.vennInput.like,
       for: $scope.vennInput.for,

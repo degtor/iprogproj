@@ -5,7 +5,11 @@ ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', function($scope, Idea) {
   var session = Idea.getSessionID();
   $scope.titleSuggestions = [];
 
+  $scope.mail = '';
 
+  $scope.sendMail = function() {
+    $window.open("mailto:" + $scope.mail + "?subject=" + "My Pitch" + "&body=" + $location.absUrl(), "_self");
+  };
 
   $scope.getWords = function() {
 
@@ -20,7 +24,7 @@ ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', function($scope, Idea) {
     var title = $scope.title;
     Idea.updateProgressValue(10);
 
-    session.child('page7').set({
+    session.child('page8').set({
       title: title
     });
   }

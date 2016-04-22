@@ -33,7 +33,7 @@ ideaPlanner.controller('ValueCtrl', ["$scope", '$firebaseObject', 'Idea', '$loca
   }
 
   $scope.card = function() {
-    this.nickName = "";
+    this.nickname = "";
     this.name = $scope.persons[0];
     this.cardId = "card" + ($scope.cards.length + 1);
     this.image = $scope.changeImage($scope.persons[0]);
@@ -70,18 +70,17 @@ ideaPlanner.controller('ValueCtrl', ["$scope", '$firebaseObject', 'Idea', '$loca
         $scope.cards.splice(i, 1);
       }
     }
+    $scope.writeDB();
   };
 
   $scope.writeDB = function() {
     for (var i = 0; i < $scope.cards.length; i++) {
-      session.child('page3').set({
-        "cards": {
-          card: $scope.cards[i].cardId,
-          nickName: $scope.cards[i].nickName,
-          name: $scope.cards[i].name,
-          image: $scope.cards[i].image,
-          value: $scope.cards[i].value
-        }
+      session.child('page2').child('stakeholders').child(i).set({
+        card: $scope.cards[i].cardId,
+        nickname: $scope.cards[i].nickname,
+        name: $scope.cards[i].name.option,
+        image: $scope.cards[i].image,
+        value: $scope.cards[i].value.option
       });
     }
   };

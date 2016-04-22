@@ -34,7 +34,9 @@ ideaPlanner.controller('mapShit', function($scope, uiGmapGoogleMapApi) {
     bool: true
   };
 
-  console.log($scope.$parent.danne);
+  $scope.options = {
+    icon: "images/marker.png"
+  };
 
   uiGmapGoogleMapApi.then(function(maps) {
 
@@ -57,7 +59,7 @@ ideaPlanner.controller('mapShit', function($scope, uiGmapGoogleMapApi) {
           place.marker.coords.latitude = lat;
           place.marker.coords.longitude = lng;
           $scope.$apply();
-          $scope.$parent.save(place);
+          $scope.$parent.writeDB(place);
         }
       });
     };
@@ -68,6 +70,7 @@ ideaPlanner.controller('mapShit', function($scope, uiGmapGoogleMapApi) {
       place: "",
       marker: {
         id: 1,
+        icon: 'images/marker.png',
         coords: {
           latitude: 0,
           longitude: 0
@@ -80,6 +83,7 @@ ideaPlanner.controller('mapShit', function($scope, uiGmapGoogleMapApi) {
     $scope.search2 = {
       place: "",
       marker: {
+        icon: 'images/marker.png',
         id: 2,
         coords: {
           latitude: 0,
@@ -94,7 +98,7 @@ ideaPlanner.controller('mapShit', function($scope, uiGmapGoogleMapApi) {
       place: "",
       marker: {
         id: 3,
-        icon: 'images/marker.png',
+        "icon": 'images/marker.png',
         coords: {
           latitude: 0,
           longitude: 0
