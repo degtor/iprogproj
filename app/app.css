@@ -52,15 +52,11 @@
   text-align: center;
 }
 
-#valueprop,
-#problem,
-#magic,
-#businessmodel,
-#marketplan,
-#analysis,
-#title {
-  height: 100vh;
-  max-width: 100vw;
+
+#valueprop, #problem, #magic, #businessmodel, #market, #analysis, #title {
+  height:100vh;
+  width:80vw;
+
 }
 
 #fixed {

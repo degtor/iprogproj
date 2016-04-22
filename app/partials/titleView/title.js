@@ -1,5 +1,6 @@
 'use strict';
 
+<<<<<<< HEAD
 ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', function($scope, Idea) {
 
   var session = Idea.getSessionID();
