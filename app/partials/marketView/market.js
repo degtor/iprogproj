@@ -20,7 +20,7 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
     var cost = 0;
     var i;
     for (i = 0; i < $scope.data[0].length; i++) {
-      if (($scope.data[0][i]) !== '') {
+      if (parseInt($scope.data[0][i])) {
         cost += parseInt($scope.data[0][i]);
       }
     }
@@ -44,6 +44,12 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
     });
 
   };
+
+  $scope.updateNumData = function(id, num) {
+    if (parseInt(num)) {
+      $scope[0][id] = num;
+    }
+  }
 
   $scope.resetData = function() {
     ref.once("value", function(snapshot) {

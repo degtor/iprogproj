@@ -2,7 +2,7 @@
     <div ng-controller="analysisCtrl">
         <h1>ANALYSIS</h1>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
             <canvas id="radar" class="chart chart-radar" chart-data="data" chart-labels="labels" chart-series="series" chart-colours="colours"></canvas>
             </div>
         </div>
@@ -33,7 +33,7 @@
                 <input ng-model="series[0]" type="text"></input>
             </div>
             <div class="col-md-2">
-                <input ng-model="data[0][0]" type="text"></input>
+                <input ng-model="data[0][0]" type="text" ng-pattern="integerval" required></input>
             </div>
             <div class="col-md-2">
                 <input ng-model="data[0][1]" type="text"></input>
