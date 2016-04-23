@@ -24,19 +24,16 @@ ideaPlanner.config(function(uiGmapGoogleMapApiProvider) {
 });
 
 ideaPlanner.controller('mapShit', function($scope, uiGmapGoogleMapApi) {
-  // Do stuff with your $scope.
-  // Note: Some of the directives require at least something to be defined originally!
-  // e.g. $scope.markers = []
 
-  // uiGmapGoogleMapApi is a promise.
-  // The "then" callback function provides the google.maps object.
   $scope.toBeAddedToProgress = {
     bool: true
   };
 
   $scope.options = {
-    icon: "images/marker.png"
+    icon: "'images/marker.png'"
   };
+
+  console.log($scope.options.icon);
 
   uiGmapGoogleMapApi.then(function(maps) {
 
@@ -70,7 +67,7 @@ ideaPlanner.controller('mapShit', function($scope, uiGmapGoogleMapApi) {
       place: "",
       marker: {
         id: 1,
-        icon: 'images/marker.png',
+        icon: "http://www.iconsdb.com/icons/preview/orange/marker-xl.png",
         coords: {
           latitude: 0,
           longitude: 0
@@ -83,7 +80,7 @@ ideaPlanner.controller('mapShit', function($scope, uiGmapGoogleMapApi) {
     $scope.search2 = {
       place: "",
       marker: {
-        icon: 'images/marker.png',
+        icon: "/images/marker.png",
         id: 2,
         coords: {
           latitude: 0,
@@ -92,13 +89,15 @@ ideaPlanner.controller('mapShit', function($scope, uiGmapGoogleMapApi) {
       }
     };
 
+    console.log($scope.search2.marker.icon);
+
     $scope.place3 = document.getElementById("place3");
     $scope.autocomplete3 = new maps.places.Autocomplete($scope.place3);
     $scope.search3 = {
       place: "",
       marker: {
         id: 3,
-        "icon": 'images/marker.png',
+        "icon": "/app/images/marker.png",
         coords: {
           latitude: 0,
           longitude: 0

@@ -70,7 +70,7 @@ ideaPlanner.controller('ValueCtrl', ["$scope", '$firebaseObject', 'Idea', '$loca
         $scope.cards.splice(i, 1);
       }
     }
-    $scope.writeDB();
+    $scope.removeDB(cardToRemove);
   };
 
   $scope.writeDB = function() {
@@ -83,6 +83,10 @@ ideaPlanner.controller('ValueCtrl', ["$scope", '$firebaseObject', 'Idea', '$loca
         value: $scope.cards[i].value.option
       });
     }
+  };
+
+  $scope.removeDB = function(toRemove) {
+    session.child('page2').child('stakeholders').child(toRemove.cardId).remove();
   };
 
 }]);

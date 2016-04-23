@@ -12,9 +12,9 @@
       </div>
       <div class="column column-70">
         <ui-gmap-google-map center='map.center' zoom='map.zoom' id="gmap">
-          <ui-gmap-marker idKey='search1.marker.id' coords='search1.marker.coords' options.icon='iconURL'></ui-gmap-marker>
-          <ui-gmap-marker idKey='search2.marker.id' coords='search2.marker.coords' options.icon='iconURL'></ui-gmap-marker>
-          <ui-gmap-marker idKey='search3.marker.id' coords='search3.marker.coords' options.icon='iconURL'></ui-gmap-marker>
+          <ui-gmap-marker ng-model="search1.marker" idKey='search1.marker.id' coords='search1.marker.coords' icon="'marker.icon'"></ui-gmap-marker>
+          <ui-gmap-marker idKey='search2.marker.id' coords='search2.marker.coords' icon="'search2.marker.icon'"></ui-gmap-marker>
+          <ui-gmap-marker idKey='search3.marker.id' coords='search3.marker.coords' icon="'search3.marker.icon'"></ui-gmap-marker>
         </ui-gmap-google-map>
       </div>
     </div>
