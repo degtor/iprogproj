@@ -1,6 +1,6 @@
 'use strict';
 
-ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', function($scope, Idea) {
+ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', '$window', '$location', function($scope, Idea, $window, $location) {
 
   var session = Idea.getSessionID();
   $scope.titleSuggestions = [];
@@ -31,3 +31,15 @@ ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', function($scope, Idea) {
 
 
 }]);
+
+ideaPlanner.directive("removeMe", function($rootScope) {
+  return {
+    link:function(scope,element,attrs)
+    {
+      element.bind("click",function() {
+        element.remove();
+      });
+    }
+  }
+
+});
