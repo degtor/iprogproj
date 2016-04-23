@@ -2,7 +2,7 @@
 
 ideaPlanner.controller("businessCtrl", ['$scope', 'Idea', function($scope, Idea) {
 
-  var images = ['hipsters', 'emo', 'fanatics', 'family'];
+  var images = ['women', 'men', 'hipsters', 'organisation', 'emo', 'fanatics', 'family', 'clubbers'];
   var money = ['subscriptions', 'one time fee', 'advertising', 'sponsors', 'charity']
   $scope.input = false;
   $scope.pickedPerson = null;

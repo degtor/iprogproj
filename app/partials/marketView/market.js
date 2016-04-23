@@ -4,11 +4,9 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
 
   var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
 
-  $scope.labels = ["Tech", "Work", "Hardware", "Software", "PR"];
+  $scope.labels = ["Tech", "Work", "Hardware", "Software", "Marketing", "Remaining precent"];
 
-  $scope.data = [
-    [0, 0, 0, 0, 0]
-  ];
+  $scope.data = [0, 0, 0, 0, 0, 0];
 
   $scope.toBeAddedToProgress = {
     bool: true
@@ -16,19 +14,30 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
 
   $scope.series = ['My Company']
 
-  $scope.colours = ['#8731BE'];
+  $scope.colours = ['#8731BE', '#9E60C9', '#B687D6', '#CFB0E4', '#E7D7F1', '#606C76'];
 
   $scope.total = null;
+
+  $scope.under100 = true;
 
   $scope.countTotal = function() {
     var cost = 0;
     var i;
-    for (i = 0; i < $scope.data[0].length; i++) {
-      if (($scope.data[0][i]) !== '') {
-        cost += parseInt($scope.data[0][i]);
-      }
+
+    for (i = 0; i < $scope.data.length; i++) {
+      cost += parseInt($scope.data[i]);
     }
+
     $scope.total = cost;
+
+    if ($scope.total <= 100){
+      $scope.under100 = true;
+      $scope.data[5] = 100 - $scope.total;
+    } else if ($scope.total > 100){
+      $scope.under100 = false;
+      $scope.data[5] = 0;
+    }
+
     return $scope.total
   }
 
@@ -40,14 +49,20 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
     var session = Idea.getSessionID();
 
     session.child('page5').set({
-      Tech: $scope.data[0][0],
-      Work: $scope.data[0][1],
-      Hardware: $scope.data[0][2],
-      Software: $scope.data[0][3],
-      PR: $scope.data[0][4]
+      Tech: $scope.data[0],
+      Work: $scope.data[1],
+      Hardware: $scope.data[2],
+      Software: $scope.data[3],
+      PR: $scope.data[4]
     });
 
   };
+
+  $scope.updateNumData = function(id, num) {
+    if (parseInt(num)) {
+      $scope[id] = num;
+    }
+  }
 
   $scope.resetData = function() {
     ref.once("value", function(snapshot) {
