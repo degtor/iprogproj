@@ -20,7 +20,7 @@
   width: 30px;
 }
 
-#nav a {
+#nav span {
   margin-left: 1vw;
 }
 
@@ -91,7 +91,7 @@ li.active {
 
 #fixed {
   position: fixed;
-  max-width: 20%;
+  /*max-width: 20%;  Viktor tog bort detta pga ikonernas storlek blev fucked.*/
   /* width: 205px; */
 }
 
