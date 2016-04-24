@@ -74,7 +74,7 @@ li {
 #map,
 #title {
   height: 100vh;
-  max-width: 100vw;
+  max-width: 80vw;
   z-index: 9999;
 }
 
@@ -91,6 +91,7 @@ li.active {
 
 #fixed {
   position: fixed;
+  max-width: 20%;
   /*max-width: 20%;  Viktor tog bort detta pga ikonernas storlek blev fucked.*/
   /* width: 205px; */
 }
@@ -107,6 +108,10 @@ li.active {
 #nav li {
   border-radius: 5px;
   padding: 5px;
+}
+
+#nav span {
+  margin-left: 1vw;
 }
 
 #dropbox {

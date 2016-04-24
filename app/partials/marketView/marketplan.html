@@ -6,6 +6,8 @@
       <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-colours="colours" chart-hover="hover"></canvas>
     </div>
 
+    <form if-interacted>
+
     <div class="col-md-4">
 
       <div class="row">
@@ -13,7 +15,7 @@
           <h4>{{ labels[0] }}</h4>
         </div>
         <div class="col-xs-4">
-           <select name="firstSelext" ng-model="data[0]">
+          <select ng-model="data[0]">
             <option value="0">0 %</option>
             <option value="10">10 %</option>
             <option value="20">20 %</option>
@@ -34,7 +36,7 @@
           <h4>{{ labels[1] }}</h4>
         </div>
         <div class="col-xs-4">
-           <select name="firstSelext" ng-model="data[1]">
+          <select ng-model="data[1]">
             <option value="0">0 %</option>
             <option value="10">10 %</option>
             <option value="20">20 %</option>
@@ -55,18 +57,18 @@
           <h4>{{ labels[2] }}</h4>
         </div>
         <div class="col-xs-4">
-           <select name="firstSelext" ng-model="data[2]">
-            <option value="0">0 %</option>
-            <option value="10">10 %</option>
-            <option value="20">20 %</option>
-            <option value="30">30 %</option>
-            <option value="40">40 %</option>
-            <option value="50">50 %</option>
-            <option value="60">60 %</option>
-            <option value="70">70 %</option>
-            <option value="80">80 %</option>
-            <option value="90">90 %</option>
-            <option value="100">100 %</option>
+          <select ng-model="data[2]">
+              <option value="0">0 %</option>
+              <option value="10">10 %</option>
+              <option value="20">20 %</option>
+              <option value="30">30 %</option>
+              <option value="40">40 %</option>
+              <option value="50">50 %</option>
+              <option value="60">60 %</option>
+              <option value="70">70 %</option>
+              <option value="80">80 %</option>
+              <option value="90">90 %</option>
+              <option value="100">100 %</option>
           </select>
         </div>
       </div>
@@ -76,7 +78,7 @@
           <h4>{{ labels[3] }}</h4>
         </div>
         <div class="col-xs-4">
-           <select name="firstSelext" ng-model="data[3]">
+          <select ng-model="data[3]">
             <option value="0">0 %</option>
             <option value="10">10 %</option>
             <option value="20">20 %</option>
@@ -97,7 +99,7 @@
           <h4>{{ labels[4] }}</h4>
         </div>
         <div class="col-xs-4">
-           <select name="firstSelext" ng-model="data[4]">
+          <select ng-model="data[4]">
             <option value="0">0 %</option>
             <option value="10">10 %</option>
             <option value="20">20 %</option>
@@ -116,23 +118,21 @@
       <div class="row">
         <div ng-model="under100">
        
-        <div ng-show="under100">
-          <h4>You're at {{ countTotal() }} %</h4>
-        </div>
+          <div ng-show="under100">
+            <h4>You're at {{ countTotal() }} %</h4>
+          </div>
         
-        <div ng-hide="under100">
-        <h4>WARNING! You're over 100%, keep it realistic!</h4>
-        </div>
-        
+          <div ng-hide="under100">
+          <h4>WARNING! You're over 100%, keep it realistic!</h4>
+          </div>
         </div>
       </div>
-      <button type="button" class="button" ng-click="saveData()">
-        <span class="glyphicon glyphicon-ok"></span>
-      </button>
-      <!--            <button type="button" class="btn btn-info" ng-click="resetData()">
-                Reset
-            </button>-->
     </div>
+     <!--  <button type="button" class="button" ng-click="saveData()">
+        <span class="glyphicon glyphicon-ok"></span>
+      </button> -->
+  </form>
+ <!--      <button type="button" class="btn btn-info" ng-click="resetData()">Reset</button> -->
   </div>
 </div>
 </div>

@@ -20,19 +20,6 @@ ideaPlanner.controller("analysisCtrl", ['$scope', 'Idea', function($scope, Idea)
 
   $scope.colours = ['#8731BE'];
 
-  $scope.inputData = [
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0]
-  ];
-
-  $scope.saveData = function(company, property) {
-
-    if (parseInt($scope.inputData[company][property])) {
-       $scope.data[company][property] = $scope.inputData[company][property];
-     }
-  }
-
   $scope.writeDB = function() {
     // Function run through factory to update progressbar. 10 is just a approx. weighted number of total progress.
     //Idea.updateProgressValue(10);
