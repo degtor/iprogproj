@@ -65,7 +65,7 @@ ideaPlanner.directive('ifInteracted', ['Idea', function(Idea) {
         if (countToMatch === trues) {
           scopeToUse.writeDB();
           if (scopeToUse.toBeAddedToProgress.bool === true) {
-            Idea.updateProgressValue(12.6);
+            Idea.updateProgressValue(12.5);
             scopeToUse.toBeAddedToProgress.bool = false;
           }
         }

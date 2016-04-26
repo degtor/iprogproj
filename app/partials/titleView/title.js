@@ -22,7 +22,7 @@ ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', '$window', '$location', f
 
   $scope.saveData = function() {
     var title = $scope.title;
-    Idea.updateProgressValue(10);
+    Idea.updateProgressValue(12.5);
 
     session.child('page8').set({
       title: title

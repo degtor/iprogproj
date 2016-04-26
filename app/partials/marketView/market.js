@@ -4,7 +4,7 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
 
   var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
 
-  $scope.labels = ["Tech", "Work", "Hardware", "Software", "Marketing", "Remaining precent"];
+  $scope.labels = ["Tech", "Work", "Hardware", "Software", "Marketing", "Remaining %"];
 
   $scope.data = [0, 0, 0, 0, 0, 0];
 
@@ -24,15 +24,18 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
     var cost = 0;
     var i;
 
-    for (i = 0; i < $scope.data.length; i++) {
+    for (i = 0; i < $scope.data.length-1; i++) {
       cost += parseInt($scope.data[i]);
     }
 
     $scope.total = cost;
 
-    if ($scope.total <= 100){
+    if ($scope.total == 100) {
       $scope.under100 = true;
-      $scope.data[5] = 100 - $scope.total;
+      $scope.data[5] = 0;
+    } else if ($scope.total < 100){
+      $scope.under100 = true;
+      $scope.data[5] = 100 - $scope.total; 
     } else if ($scope.total > 100){
       $scope.under100 = false;
       $scope.data[5] = 0;
