@@ -20,7 +20,7 @@ ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', '$window', '$location', f
     session.child('page1').once('value', function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
         $scope.titleSuggestions.push(childSnapshot.val());
-      })
+      });
     });
   };
 

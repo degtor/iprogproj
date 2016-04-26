@@ -11,81 +11,189 @@
       <div class="col-md-2">
       </div>
       <div class="col-md-2">
-        <input ng-model="labels[0]" type="text"></input>
+        <h5> {{ labels[0] }}</h5>
       </div>
       <div class="col-md-2">
-        <input ng-model="labels[1]" type="text"></input>
+        <h5> {{ labels[1] }}</h5>
       </div>
       <div class="col-md-2">
-        <input ng-model="labels[2]" type="text"></input>
+        <h5> {{ labels[2] }}</h5>
       </div>
       <div class="col-md-2">
-        <input ng-model="labels[3]" type="text"></input>
+        <h5> {{ labels[3] }}</h5>
       </div>
       <div class="col-md-2">
-        <input ng-model="labels[4]" type="text"></input>
+        <h5> {{ labels[4] }}</h5>
       </div>
     </div>
     <div class="row">
       <div class="col-md-2">
-        <input ng-model="series[0]" type="text"></input>
+      <p>{{ series[0]}}</p>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[0][0]" type="text"></input>
+        <select class="form-control" ng-model="data[0][0]">
+          <option value="0" disabled selected>Experience</option>
+          <option value="10">Very Bad</option>
+          <option value="20">Bad</option>
+          <option value="30">Average</option>
+          <option value="40">Good</option>
+          <option value="50">Very Good</option>
+          </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[0][1]" type="text"></input>
+        <select class="form-control" ng-model="data[0][1]">
+          <option value="0" disabled selected>Cost</option>
+          <option value="10">Very Expensive</option>
+          <option value="20">Expensive</option>
+          <option value="30">Average</option>
+          <option value="40">Affordable</option>
+          <option value="50">Very Affordable</option>
+          </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[0][2]" type="text"></input>
+        <select class="form-control" ng-model="data[0][2]">
+          <option value="0" disabled selected>Quality</option>
+          <option value="10">Very Bad</option>
+          <option value="20">Bad</option>
+          <option value="30">Average</option>
+          <option value="40">Good</option>
+          <option value="50">Very Good</option>
+        </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[0][3]" type="text"></input>
+        <select class="form-control" ng-model="data[0][3]">
+          <option value="0" disabled selected>Target group</option>
+          <option value="10">Very Small</option>
+          <option value="20">Small</option>
+          <option value="30">Average</option>
+          <option value="40">Big</option>
+          <option value="50">Very Big</option>
+        </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[0][4]" type="text"></input>
+      <select class="form-control" ng-model="data[0][4]">
+        <option value="0" disabled selected>Main idea</option>
+        <option value="10">Very Bad</option>
+        <option value="20">Bad</option>
+        <option value="30">Average</option>
+        <option value="40">Good</option>
+        <option value="50">Very Good</option>
+      </select>
       </div>
     </div>
+
     <div class="row">
       <div class="col-md-2">
-        <input ng-model="series[1]" type="text"></input>
+      <p>{{ series[1]}}</p>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[1][0]" type="text"></input>
+        <select class="form-control" ng-model="data[1][0]">
+          <option value="0" disabled selected>Experience</option>
+          <option value="10">Very Bad</option>
+          <option value="20">Bad</option>
+          <option value="30">Average</option>
+          <option value="40">Good</option>
+          <option value="50">Very Good</option>
+          </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[1][1]" type="text"></input>
+        <select class="form-control" ng-model="data[1][1]">
+          <option value="0" disabled selected>Cost</option>
+          <option value="10">Very Expensive</option>
+          <option value="20">Expensive</option>
+          <option value="30">Average</option>
+          <option value="40">Affordable</option>
+          <option value="50">Very Affordable</option>
+          </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[1][2]" type="text"></input>
+        <select class="form-control" ng-model="data[1][2]">
+          <option value="0" disabled selected>Quality</option>
+          <option value="10">Very Bad</option>
+          <option value="20">Bad</option>
+          <option value="30">Average</option>
+          <option value="40">Good</option>
+          <option value="50">Very Good</option>
+        </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[1][3]" type="text"></input>
+        <select class="form-control" ng-model="data[1][3]">
+          <option value="0" disabled selected>Target group</option>
+          <option value="10">Very Small</option>
+          <option value="20">Small</option>
+          <option value="30">Average</option>
+          <option value="40">Big</option>
+          <option value="50">Very Big</option>
+        </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[1][4]" type="text"></input>
+      <select class="form-control" ng-model="data[1][4]">
+        <option value="0" disabled selected>Main idea</option>
+        <option value="10">Very Bad</option>
+        <option value="20">Bad</option>
+        <option value="30">Average</option>
+        <option value="40">Good</option>
+        <option value="50">Very Good</option>
+      </select>
       </div>
     </div>
+
     <div class="row">
       <div class="col-md-2">
-        <input ng-model="series[2]" type="text"></input>
+      <p>{{ series[2]}}</p>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[2][0]" type="text"></input>
+        <select class="form-control" ng-model="data[2][0]">
+          <option value="0" disabled selected>Experience</option>
+          <option value="10">Very Bad</option>
+          <option value="20">Bad</option>
+          <option value="30">Average</option>
+          <option value="40">Good</option>
+          <option value="50">Very Good</option>
+          </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[2][1]" type="text"></input>
+        <select class="form-control" ng-model="data[2][1]">
+          <option value="0" disabled selected>Cost</option>
+          <option value="10">Very Expensive</option>
+          <option value="20">Expensive</option>
+          <option value="30">Average</option>
+          <option value="40">Affordable</option>
+          <option value="50">Very Affordable</option>
+          </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[2][2]" type="text"></input>
+        <select class="form-control" ng-model="data[2][2]">
+          <option value="0" disabled selected>Quality</option>
+          <option value="10">Very Bad</option>
+          <option value="20">Bad</option>
+          <option value="30">Average</option>
+          <option value="40">Good</option>
+          <option value="50">Very Good</option>
+        </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[2][3]" type="text"></input>
+        <select class="form-control" ng-model="data[2][3]">
+          <option value="0" disabled selected>Target group</option>
+          <option value="10">Very Small</option>
+          <option value="20">Small</option>
+          <option value="30">Average</option>
+          <option value="40">Big</option>
+          <option value="50">Very Big</option>
+        </select>
       </div>
       <div class="col-md-2">
-        <input ng-model="data[2][4]" type="text"></input>
+      <select class="form-control" ng-model="data[2][4]">
+        <option value="0" disabled selected>Main idea</option>
+        <option value="10">Very Bad</option>
+        <option value="20">Bad</option>
+        <option value="30">Average</option>
+        <option value="40">Good</option>
+        <option value="50">Very Good</option>
+      </select>
       </div>
     </div>
+
     <!--
     <button type="button" class="button" ng-click="saveData()">
       <span class="glyphicon glyphicon-ok"></span>
