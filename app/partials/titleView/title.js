@@ -2,6 +2,10 @@
 
 ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', '$window', '$location', function($scope, Idea, $window, $location) {
 
+  $scope.toBeAddedToProgress = {
+    bool: true
+  };
+
   var session = Idea.getSessionID();
   $scope.titleSuggestions = [];
 
@@ -22,12 +26,16 @@ ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', '$window', '$location', f
 
   $scope.saveData = function() {
     var title = $scope.title;
-    Idea.updateProgressValue(10);
+
+    if ($scope.toBeAddedToProgress.bool === true) {
+      Idea.updateProgressValue(12.5);
+      $scope.toBeAddedToProgress = false;
+    }
 
     session.child('page8').set({
       title: title
     });
-  }
+  };
 
 
 }]);
