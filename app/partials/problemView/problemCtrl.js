@@ -1,17 +1,24 @@
-ideaPlanner.controller('ProblemCtrl', ['$scope', '$firebaseObject', 'Idea', '$location', function($scope, $firebaseObject, Idea, $location) {
-
-  var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
+ideaPlanner.controller('ProblemCtrl', ['$scope', '$location', 'Idea',
+  function($scope, $location, Idea) {
 
   $scope.toBeAddedToProgress = {
     bool: true
   };
 
-  $scope.data = $firebaseObject(ref);
-
+    // NYTT STUFF HÄR
   var session = Idea.getSessionID();
+  console.log(session.key());
 
-  // Gör så att urlen blir samma på reload. Funkar oftast?!
-  $location.url(session.key());
+    // DETTA SKA LÄSA IN värdena på scope från db
+  session.on('value', function(snapshot) {
+    var page1 = snapshot.val();
+        $scope.problem = page1.problem;
+        $scope.opportunity =  page1.opportunity;
+        $scope.problem2 =  page1.problem2;
+        $scope.opportunity2 = page1.opportunity2;
+  });
+ // SLUT HÄR
+
 
   $scope.writeDB = function() {
 
@@ -42,14 +49,6 @@ ideaPlanner.controller('ProblemCtrl', ['$scope', '$firebaseObject', 'Idea', '$lo
     });
   };
 
-  /* $scope.resetData = function () {
-       ref.once("value", function (snapshot) {
-           snapshot.forEach(function (childSnapshot) {
-               var key = childSnapshot.key();
-               ref.child(key).child('page1').remove();
-           });
-       });
-   };*/
 
 }]);
 

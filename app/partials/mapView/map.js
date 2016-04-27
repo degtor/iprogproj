@@ -1,9 +1,7 @@
 'use strict';
 
-ideaPlanner.controller("mapCtrl", ['$scope', '$firebaseObject', 'Idea', '$location', function($scope, $firebaseObject, Idea, $location, uiGmapGoogleMapApi) {
+ideaPlanner.controller("mapCtrl", ['$scope', 'Idea', '$location', function($scope, Idea, $location, uiGmapGoogleMapApi) {
 
-  var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
-  $scope.data = $firebaseObject(ref);
   var session = Idea.getSessionID();
 
   $scope.writeDB = function(place) {
