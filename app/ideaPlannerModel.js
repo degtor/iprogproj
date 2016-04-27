@@ -1,55 +1,52 @@
-
-
-ideaPlanner.factory('Idea',  function ($location) {
+ideaPlanner.factory('Idea', function($location) {
 
 
 
-    // Skeleton database is set up in firebasesetup.js
-    // Ref is a connection to database/pages
-    var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
+  // Skeleton database is set up in firebasesetup.js
+  // Ref is a connection to database/pages
+  var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
 
-    //Clears database on initiation.
-    ref.remove();
+  //Clears database on initiation.
 
-    // sessionID stores the unique value created on initial push. Used for referencing a users session.
-    var sessionID = ref.push({'user': 'user'});
+  // sessionID stores the unique value created on initial push. Used for referencing a users session.
+  var sessionID = ref.push({ 'user': 'user' });
 
-    var getSessionID = function () {
-        return sessionID;
-    };
+  var getSessionID = function() {
+    return sessionID;
+  };
 
-/*
-    console.log($location.absUrl());
-    // $location.path(sessionID.key());
-    console.log($location.absUrl());
-    console.log($location.url('/humbug'));
-*/
+  /*
+      console.log($location.absUrl());
+      // $location.path(sessionID.key());
+      console.log($location.absUrl());
+      console.log($location.url('/humbug'));
+  */
 
-    var progressValue = 0;
+  var progressValue = 0;
 
-    var updateProgressValue = function (val) {
-        progressValue = progressValue + val;
-    };
+  var updateProgressValue = function(val) {
+    progressValue = progressValue + val;
+  };
 
-    var getProgressValue = function () {
-        return progressValue;
+  var getProgressValue = function() {
+    return progressValue;
 
-    };
-
-
-    return {
-        updateProgressValue: updateProgressValue,
-        getProgressValue:  getProgressValue,
-        getSessionID: getSessionID
-    }
-
-        //getItems: getItems,
-        //addItem: addItem,
-        //updateItems: updateItems,
-        //removeItem: removeItem
+  };
 
 
-    /*//Submit answer to progress
+  return {
+    updateProgressValue: updateProgressValue,
+    getProgressValue: getProgressValue,
+    getSessionID: getSessionID
+  }
+
+  //getItems: getItems,
+  //addItem: addItem,
+  //updateItems: updateItems,
+  //removeItem: removeItem
+
+
+  /*//Submit answer to progress
     this.addToProgressBar = function(addedAnswer, viewId) {
         ref.on("value", function(snapshot) {
             var pages = snapshot.val();
