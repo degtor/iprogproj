@@ -2,8 +2,24 @@
 
 ideaPlanner.controller("businessCtrl", ['$scope', 'Idea', function($scope, Idea) {
 
+  // NYTT STUFF HÄR
+  var session = Idea.getSessionID();
+  console.log(session.key());
+
+  // DETTA SKA LÄSA IN värdena på scope från db
+  session.once('value', function(snapshot) {
+    console.log(snapshot.val());
+    var page4 = snapshot.val().page4;
+    $scope.pickedPerson = page4.targetgroup;
+    $scope.pickedMoney =  page4.method;
+    $scope.input = page4.input;
+  });
+
+
+  // SLUT HÄR
+
   var images = ['women', 'men', 'hipsters', 'organisation', 'emo', 'fanatics', 'family', 'clubbers'];
-  var money = ['subscriptions', 'one time fee', 'advertising', 'sponsors', 'charity']
+  var money = ['subscriptions', 'one time fee', 'advertising', 'sponsors', 'charity'];
   $scope.input = false;
   $scope.pickedPerson = null;
   $scope.pickedMoney = null;
@@ -48,8 +64,6 @@ ideaPlanner.controller("businessCtrl", ['$scope', 'Idea', function($scope, Idea)
     }
   };
 
-  var session = Idea.getSessionID();
-
   $scope.saveData = function() {
 
     // Function run through factory to update progressbar. 10 is just a approx. weighted number of total progress.
@@ -62,7 +76,8 @@ ideaPlanner.controller("businessCtrl", ['$scope', 'Idea', function($scope, Idea)
 
       session.child('page4').set({
         targetgroup: $scope.getPickedPerson(),
-        method: $scope.getPickedMoney()
+        method: $scope.getPickedMoney(),
+        input: $scope.input
       });
     }
   };

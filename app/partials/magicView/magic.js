@@ -1,10 +1,22 @@
 'use strict';
-ideaPlanner.controller("magicCtrl", ['$scope', '$firebaseObject', 'Idea', '$location', function($scope, $firebaseObject, Idea, $location) {
+ideaPlanner.controller("magicCtrl", ['$scope', 'Idea', '$location', function($scope, Idea, $location) {
 
-  var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
-  $scope.data = $firebaseObject(ref);
+
+  // NYTT STUFF HÄR
   var session = Idea.getSessionID();
-  $location.url(session.key());
+  console.log(session.key());
+
+  // DETTA SKA LÄSA IN värdena på scope från db
+  session.once('value', function(snapshot) {
+    console.log(snapshot.val());
+    var page3 = snapshot.val().page3;
+    $scope.vennInput.like = page3.like;
+    $scope.vennInput.for =  page3.for;
+    $scope.vennInput.with =  page3.with;
+  });
+
+  // SLUT HÄR
+
 
   $scope.toBeAddedToProgress = {
     bool: true

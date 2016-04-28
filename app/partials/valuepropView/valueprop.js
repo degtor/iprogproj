@@ -2,13 +2,21 @@
 
 ideaPlanner.controller('ValueCtrl', ["$scope", '$firebaseObject', 'Idea', '$location', function($scope, $firebaseObject, Idea, $location) {
 
-  var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
-  $scope.data = $firebaseObject(ref);
-
+/*  // NYTT STUFF HÄR
   var session = Idea.getSessionID();
+  console.log(session.key());
 
-  // Gör så att urlen blir samma på reload. Funkar oftast?!
-  $location.url(session.key());
+  // DETTA SKA LÄSA IN värdena på scope från db
+  session.once('value', function(snapshot) {
+    var page2 = snapshot.val().page2;
+    $scope.problem = page2.problem;
+    $scope.opportunity =  page2.opportunity;
+    $scope.problem2 =  page2.problem2;
+    $scope.opportunity2 = page2.opportunity2;
+  });
+
+
+  // SLUT HÄR*/
 
   $scope.values = [{ option: "select a value..." },
     { option: "fun" },

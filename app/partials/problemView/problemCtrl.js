@@ -10,13 +10,16 @@ ideaPlanner.controller('ProblemCtrl', ['$scope', '$location', 'Idea',
   console.log(session.key());
 
     // DETTA SKA LÄSA IN värdena på scope från db
-  session.on('value', function(snapshot) {
-    var page1 = snapshot.val();
-        $scope.problem = page1.problem;
-        $scope.opportunity =  page1.opportunity;
-        $scope.problem2 =  page1.problem2;
-        $scope.opportunity2 = page1.opportunity2;
-  });
+    session.once('value', function(snapshot) {
+      console.log(snapshot.val());
+      var page1 = snapshot.val().page1;
+      $scope.problem = page1.problem;
+      $scope.opportunity =  page1.opportunity;
+      $scope.problem2 =  page1.problem2;
+      $scope.opportunity2 = page1.opportunity2;
+    });
+
+
  // SLUT HÄR
 
 
@@ -49,7 +52,6 @@ ideaPlanner.controller('ProblemCtrl', ['$scope', '$location', 'Idea',
     });
   };
 
-
 }]);
 
 ideaPlanner.directive("addinput", function($compile) {
@@ -60,3 +62,5 @@ ideaPlanner.directive("addinput", function($compile) {
     });
   };
 });
+
+

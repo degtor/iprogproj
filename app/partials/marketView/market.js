@@ -2,22 +2,33 @@
 
 ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
 
-  var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
+  // NYTT STUFF HÄR
+  var session = Idea.getSessionID();
+  console.log(session.key());
+
+  // DETTA SKA LÄSA IN värdena på scope från db
+  session.once('value', function(snapshot) {
+    console.log(snapshot.val());
+    var page5 = snapshot.val().page5;
+    $scope.data[0] = page5.Tech;
+    $scope.data[1] =  page5.Work;
+    $scope.data[2] = page5.Hardware;
+    $scope.data[3] = page5.Software;
+    $scope.data[4] = page5.PR;
+  });
+
+
+  // SLUT HÄR
 
   $scope.labels = ["Tech", "Work", "Hardware", "Software", "Marketing", "Remaining %"];
-
   $scope.data = [0, 0, 0, 0, 0, 0];
-
   $scope.toBeAddedToProgress = {
     bool: true
   };
 
   $scope.series = ['My Company']
-
   $scope.colours = ['#8731BE', '#9E60C9', '#B687D6', '#CFB0E4', '#E7D7F1', '#606C76'];
-
   $scope.total = null;
-
   $scope.under100 = true;
 
   $scope.countTotal = function() {
@@ -49,8 +60,6 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
     // Function run through factory to update progressbar. 10 is just a approx. weighted number of total progress.
     //Idea.updateProgressValue(10);
 
-    var session = Idea.getSessionID();
-
     session.child('page5').set({
       Tech: $scope.data[0],
       Work: $scope.data[1],
@@ -66,14 +75,5 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
       $scope[id] = num;
     }
   }
-
-  $scope.resetData = function() {
-    ref.once("value", function(snapshot) {
-      snapshot.forEach(function(childSnapshot) {
-        var key = childSnapshot.key();
-        ref.child(key).child('page5').remove();
-      });
-    });
-  };
 
 }]);
