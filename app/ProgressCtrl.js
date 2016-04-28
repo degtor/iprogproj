@@ -1,6 +1,5 @@
-ideaPlanner.controller('ProgressCtrl', ['$scope', 'Idea', '$window', '$location', function($scope, Idea, $window, $location) {
+ideaPlanner.controller('ProgressCtrl', ['$scope', 'Idea', function($scope, Idea) {
 
-  var ref = new Firebase("https://sizzling-torch-8958.firebaseio.com");
   $scope.max = 200;
   $scope.dynamic = 0;
 

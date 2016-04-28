@@ -52,13 +52,4 @@ ideaPlanner.controller("analysisCtrl", ['$scope', 'Idea', function($scope, Idea)
 
   };
 
-  $scope.resetData = function() {
-    ref.once("value", function(snapshot) {
-      snapshot.forEach(function(childSnapshot) {
-        var key = childSnapshot.key();
-        ref.child(key).child('page5').remove();
-      });
-    });
-  };
-
 }]);

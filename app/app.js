@@ -15,6 +15,8 @@ ideaPlanner.config(function($routeProvider) {
   .otherwise({ redirectTo: '/' });
 });
 
+
+
 ideaPlanner.config(function(uiGmapGoogleMapApiProvider) {
   uiGmapGoogleMapApiProvider.configure({
     //key: 'YOUR KEY HERE',
@@ -33,7 +35,7 @@ ideaPlanner.controller('mapShit', function($scope, uiGmapGoogleMapApi) {
     icon: "'images/marker.png'"
   };
 
-  console.log($scope.options.icon);
+  //console.log($scope.options.icon);
 
   uiGmapGoogleMapApi.then(function(maps) {
 
@@ -89,7 +91,7 @@ ideaPlanner.controller('mapShit', function($scope, uiGmapGoogleMapApi) {
       }
     };
 
-    console.log($scope.search2.marker.icon);
+    //console.log($scope.search2.marker.icon);
 
     $scope.place3 = document.getElementById("place3");
     $scope.autocomplete3 = new maps.places.Autocomplete($scope.place3);
