@@ -10,11 +10,15 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
   session.once('value', function(snapshot) {
     console.log(snapshot.val());
     var page5 = snapshot.val().page5;
-    $scope.data[0] = page5.Tech;
-    $scope.data[1] =  page5.Work;
-    $scope.data[2] = page5.Hardware;
-    $scope.data[3] = page5.Software;
-    $scope.data[4] = page5.PR;
+    if (page5 !== undefined) {
+      $scope.data[0] = page5.Tech;
+      $scope.data[1] = page5.Work;
+      $scope.data[2] = page5.Hardware;
+      $scope.data[3] = page5.Software;
+      $scope.data[4] = page5.PR;
+      $scope.toBeAddedToProgress.bool = false;
+      Idea.updateProgressValue(12.5);
+    }
   });
 
 
@@ -35,7 +39,7 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
     var cost = 0;
     var i;
 
-    for (i = 0; i < $scope.data.length-1; i++) {
+    for (i = 0; i < $scope.data.length - 1; i++) {
       cost += parseInt($scope.data[i]);
     }
 
@@ -44,10 +48,10 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
     if ($scope.total == 100) {
       $scope.under100 = true;
       $scope.data[5] = 0;
-    } else if ($scope.total < 100){
+    } else if ($scope.total < 100) {
       $scope.under100 = true;
-      $scope.data[5] = 100 - $scope.total; 
-    } else if ($scope.total > 100){
+      $scope.data[5] = 100 - $scope.total;
+    } else if ($scope.total > 100) {
       $scope.under100 = false;
       $scope.data[5] = 0;
     }

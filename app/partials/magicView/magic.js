@@ -4,15 +4,18 @@ ideaPlanner.controller("magicCtrl", ['$scope', 'Idea', '$location', function($sc
 
   // NYTT STUFF HÄR
   var session = Idea.getSessionID();
-  console.log(session.key());
 
   // DETTA SKA LÄSA IN värdena på scope från db
   session.once('value', function(snapshot) {
-    console.log(snapshot.val());
     var page3 = snapshot.val().page3;
-    $scope.vennInput.like = page3.like;
-    $scope.vennInput.for =  page3.for;
-    $scope.vennInput.with =  page3.with;
+    if (page3 !== undefined) {
+      $scope.vennInput.like = page3.like;
+      $scope.vennInput.for = page3.for;
+      $scope.vennInput.with = page3.with;
+      $scope.updateVennData();
+      $scope.toBeAddedToProgress.bool = false;
+      Idea.updateProgressValue(12.5);
+    }
   });
 
   // SLUT HÄR
@@ -20,10 +23,6 @@ ideaPlanner.controller("magicCtrl", ['$scope', 'Idea', '$location', function($sc
 
   $scope.toBeAddedToProgress = {
     bool: true
-  };
-
-  $scope.addToDB = {
-    bool: false
   };
 
   if ($scope.like || $scope.for || $scope.with === undefined) {

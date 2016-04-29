@@ -2,21 +2,23 @@
 
 ideaPlanner.controller('ValueCtrl', ["$scope", '$firebaseObject', 'Idea', '$location', function($scope, $firebaseObject, Idea, $location) {
 
-/*  // NYTT STUFF HÄR
+  /*  // NYTT STUFF HÄR
+    var session = Idea.getSessionID();
+    console.log(session.key());
+
+    // DETTA SKA LÄSA IN värdena på scope från db
+    session.once('value', function(snapshot) {
+      var page2 = snapshot.val().page2;
+      $scope.problem = page2.problem;
+      $scope.opportunity =  page2.opportunity;
+      $scope.problem2 =  page2.problem2;
+      $scope.opportunity2 = page2.opportunity2;
+    });
+
+
+    // SLUT HÄR*/
+
   var session = Idea.getSessionID();
-  console.log(session.key());
-
-  // DETTA SKA LÄSA IN värdena på scope från db
-  session.once('value', function(snapshot) {
-    var page2 = snapshot.val().page2;
-    $scope.problem = page2.problem;
-    $scope.opportunity =  page2.opportunity;
-    $scope.problem2 =  page2.problem2;
-    $scope.opportunity2 = page2.opportunity2;
-  });
-
-
-  // SLUT HÄR*/
 
   $scope.values = [{ option: "select a value..." },
     { option: "fun" },
@@ -37,56 +39,22 @@ ideaPlanner.controller('ValueCtrl', ["$scope", '$firebaseObject', 'Idea', '$loca
   };
 
   session.once('value', function(snapshot) {
-    console.log("HELLO, I'M RUNNING!");
     var data = snapshot.val();
-    console.log(data);
     for (var i = 0; i < data.page2.stakeholders.length; i++) {
-      console.log("This is first for loop");
-      console.log(data.page2.stakeholders);
       $scope.addNewCard();
     }
-
-    /*   return data.filter(
-      function(data){return data.code == code}
-  ); */
 
     for (var j = 0; j < $scope.cards.length; j++) {
       console.log("YEAH, second loop");
       $scope.cards[j].nickname = data.page2.stakeholders[j].nickname;
-      $scope.cards[j].name = $scope.persons.filter(
-        function(data.page2.stakeholders[j].name) {
-          return $scope.persons.option == data.page2.stakeholders[j].name;
-        });
-
+      $scope.cards[j].name = $scope.persons[data.page2.stakeholders[j].name];
       $scope.cards[j].cardId = data.page2.stakeholders[j].card;
       $scope.cards[j].image = data.page2.stakeholders[j].image;
-      $scope.cards[j].value = data.page2.stakeholders[j].value;
+      $scope.cards[j].value = $scope.values[data.page2.stakeholders[j].value];
     }
-    console.log($scope.cards);
+    $scope.toBeAddedToProgress.bool = false;
+    Idea.updateProgressValue(12.5);
   });
-
-  /*
-            card: $scope.cards[i].cardId,
-        nickname: $scope.cards[i].nickname,
-        name: $scope.cards[i].name.option,
-        image: $scope.cards[i].image,
-        value: $scope.cards[i].value.option
-
-          session.once('value', function(snapshot) {
-      var page1 = snapshot.val();
-      if (page1.problem2 === undefined) {
-        $scope.problem = page1.page1.problem;
-        $scope.opportunity = page1.page1.opportunity;
-        $scope.$apply();
-      } else {
-        $scope.problem = page1.problem;
-        $scope.opportunity = page1.opportunity;
-        $scope.problem2 = page1.problem2;
-        $scope.opportunity2 = page1.opportunity2;
-      }
-    }); */
-
-
 
   if ($scope.cards === undefined) {
     $scope.cards = [];
@@ -139,9 +107,9 @@ ideaPlanner.controller('ValueCtrl', ["$scope", '$firebaseObject', 'Idea', '$loca
       session.child('page2').child('stakeholders').child(i).set({
         card: $scope.cards[i].cardId,
         nickname: $scope.cards[i].nickname,
-        name: $scope.cards[i].name,
+        name: $scope.persons.indexOf($scope.cards[i].name),
         image: $scope.cards[i].image,
-        value: $scope.cards[i].value
+        value: $scope.values.indexOf($scope.cards[i].value)
       });
     }
   };
