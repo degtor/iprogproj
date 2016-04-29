@@ -25,6 +25,8 @@ ideaPlanner.controller("analysisCtrl", ['$scope', 'Idea', function($scope, Idea)
       $scope.data[2][4] = page6.othercompany2.MainIdea;
       $scope.toBeAddedToProgress.bool = false;
       Idea.updateProgressValue(12.5);
+      console.log($scope.toBeAddedToProgress.bool);
+      console.log(Idea.getProgressValue());
     }
   });
 

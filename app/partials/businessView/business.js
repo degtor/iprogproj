@@ -14,8 +14,9 @@ ideaPlanner.controller("businessCtrl", ['$scope', 'Idea', function($scope, Idea)
       $scope.pickedPerson = page4.targetgroup;
       $scope.pickedMoney = page4.method;
       $scope.input = page4.input;
-      $scope.toBeAddedToProgress.bool = false;
       Idea.updateProgressValue(12.5);
+      $scope.toBeAddedToProgress.bool = false;
+
     }
   });
 

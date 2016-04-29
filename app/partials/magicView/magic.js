@@ -2,6 +2,10 @@
 ideaPlanner.controller("magicCtrl", ['$scope', 'Idea', '$location', function($scope, Idea, $location) {
 
 
+  $scope.toBeAddedToProgress = {
+    bool: true
+  };
+
   // NYTT STUFF HÄR
   var session = Idea.getSessionID();
 
@@ -15,15 +19,12 @@ ideaPlanner.controller("magicCtrl", ['$scope', 'Idea', '$location', function($sc
       $scope.updateVennData();
       $scope.toBeAddedToProgress.bool = false;
       Idea.updateProgressValue(12.5);
+      console.log($scope.toBeAddedToProgress.bool);
+      console.log(Idea.getProgressValue());
     }
   });
 
   // SLUT HÄR
-
-
-  $scope.toBeAddedToProgress = {
-    bool: true
-  };
 
   if ($scope.like || $scope.for || $scope.with === undefined) {
     $scope.like = "it's like...";

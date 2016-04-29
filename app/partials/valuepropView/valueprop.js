@@ -40,20 +40,23 @@ ideaPlanner.controller('ValueCtrl', ["$scope", '$firebaseObject', 'Idea', '$loca
 
   session.once('value', function(snapshot) {
     var data = snapshot.val();
-    for (var i = 0; i < data.page2.stakeholders.length; i++) {
-      $scope.addNewCard();
-    }
+    if (data.page2 !== undefined) {
+      for (var i = 0; i < data.page2.stakeholders.length; i++) {
+        $scope.addNewCard();
+      }
 
-    for (var j = 0; j < $scope.cards.length; j++) {
-      console.log("YEAH, second loop");
-      $scope.cards[j].nickname = data.page2.stakeholders[j].nickname;
-      $scope.cards[j].name = $scope.persons[data.page2.stakeholders[j].name];
-      $scope.cards[j].cardId = data.page2.stakeholders[j].card;
-      $scope.cards[j].image = data.page2.stakeholders[j].image;
-      $scope.cards[j].value = $scope.values[data.page2.stakeholders[j].value];
+      for (var j = 0; j < $scope.cards.length; j++) {
+        $scope.cards[j].nickname = data.page2.stakeholders[j].nickname;
+        $scope.cards[j].name = $scope.persons[data.page2.stakeholders[j].name];
+        $scope.cards[j].cardId = data.page2.stakeholders[j].card;
+        $scope.cards[j].image = data.page2.stakeholders[j].image;
+        $scope.cards[j].value = $scope.values[data.page2.stakeholders[j].value];
+      }
+      $scope.toBeAddedToProgress.bool = false;
+      Idea.updateProgressValue(12.5);
+      console.log($scope.toBeAddedToProgress.bool);
+      console.log(Idea.getProgressValue());
     }
-    $scope.toBeAddedToProgress.bool = false;
-    Idea.updateProgressValue(12.5);
   });
 
   if ($scope.cards === undefined) {

@@ -9,6 +9,7 @@ ideaPlanner.controller("mapCtrl", ['$scope', 'Idea', '$location', function($scop
   session.once('value', function(snapshot) {
     var page7 = snapshot.val().page7;
     if (page7 !== undefined) {
+      console.log($scope.$$childHead);
       $scope.$$childHead.search1.place = page7.locations[1].place;
       $scope.$$childHead.search1.marker.coords.id = page7.locations[1].id;
       $scope.$$childHead.search1.marker.coords.latitude = page7.locations[1].latitude;
@@ -21,9 +22,9 @@ ideaPlanner.controller("mapCtrl", ['$scope', 'Idea', '$location', function($scop
       $scope.$$childHead.search3.marker.coords.id = page7.locations[3].id;
       $scope.$$childHead.search3.marker.coords.latitude = page7.locations[3].latitude;
       $scope.$$childHead.search3.marker.coords.longitude = page7.locations[3].longitude;
+      Idea.updateProgressValue(12.5);
+      $scope.$$childHead.toBeAddedToProgress.bool = false;
     }
-    $scope.$$childHead.toBeAddedToProgress.bool = false;
-    Idea.updateProgressValue(12.5);
     $scope.$$childHead.$apply();
   });
 

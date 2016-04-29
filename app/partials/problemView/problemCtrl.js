@@ -24,6 +24,9 @@ ideaPlanner.controller('ProblemCtrl', ['$scope', '$location', 'Idea',
         $scope.opportunity2 = page1.opportunity2;
         $scope.toBeAddedToProgress.bool = false;
         Idea.updateProgressValue(12.5);
+        console.log($scope.toBeAddedToProgress.bool);
+        console.log(Idea.getProgressValue());
+        $scope.$apply();
       }
     });
 

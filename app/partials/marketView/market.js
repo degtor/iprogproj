@@ -2,6 +2,10 @@
 
 ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
 
+  $scope.toBeAddedToProgress = {
+    bool: true
+  };
+
   // NYTT STUFF HÄR
   var session = Idea.getSessionID();
   console.log(session.key());
@@ -18,6 +22,8 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
       $scope.data[4] = page5.PR;
       $scope.toBeAddedToProgress.bool = false;
       Idea.updateProgressValue(12.5);
+      console.log($scope.toBeAddedToProgress.bool);
+      console.log(Idea.getProgressValue());
     }
   });
 
@@ -26,9 +32,6 @@ ideaPlanner.controller("marketCtrl", ['$scope', 'Idea', function($scope, Idea) {
 
   $scope.labels = ["Tech", "Work", "Hardware", "Software", "Marketing", "Remaining %"];
   $scope.data = [0, 0, 0, 0, 0, 0];
-  $scope.toBeAddedToProgress = {
-    bool: true
-  };
 
   $scope.series = ['My Company']
   $scope.colours = ['#8731BE', '#9E60C9', '#B687D6', '#CFB0E4', '#E7D7F1', '#606C76'];

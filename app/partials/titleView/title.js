@@ -6,6 +6,23 @@ ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', '$window', '$location', f
     bool: true
   };
 
+  $scope.title = "";
+
+  var session = Idea.getSessionID();
+
+  // DETTA SKA LÄSA IN värdena på scope från db
+  session.once('value', function(snapshot) {
+    var page8 = snapshot.val().page8;
+    if (page8 !== undefined) {
+      $scope.title = page8.title;
+      $scope.toBeAddedToProgress.bool = false;
+      Idea.updateProgressValue(12.5);
+      console.log($scope.toBeAddedToProgress.bool);
+      console.log(Idea.getProgressValue());
+    }
+
+  });
+
   var session = Idea.getSessionID();
   $scope.titleSuggestions = [];
 
@@ -42,9 +59,8 @@ ideaPlanner.controller("titleCtrl", ['$scope', 'Idea', '$window', '$location', f
 
 ideaPlanner.directive("removeMe", function($rootScope) {
   return {
-    link:function(scope,element,attrs)
-    {
-      element.bind("click",function() {
+    link: function(scope, element, attrs) {
+      element.bind("click", function() {
         element.remove();
       });
     }
